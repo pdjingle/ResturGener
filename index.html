@@ -15,56 +15,79 @@
             Save Your Date <br>
             Restaurant Decision Maker
         </h1>
-        <section>
-            <p>You will tell us where you are and how you want it.</p>
-            <p>We randomly pick ONE restaurant for you.</p>
-            <p>No more discussion.</p>
-            <p>You order. You eat.</p>
-            <p>You argue over what to stream tonight.</p>
-        </section>
+
     </header>
 
     <!-- User inputs desired criteria for restaurant options -->
     <body>
+        <div class="row">
+        <!-- Left side bar of previously searched restaurants -->
+        <aside id="prev" class="col-sm-12 col-md-3">
+            <h3>Previous Searches</h3>
+            <div id="prev-list"></div>
+        </aside>
+
+        <main class="col-sm-12 col-md-6">
+            <section>
+                <p>
+                    You will tell us where you are and how you want it.<br>
+                    We randomly pick ONE restaurant for you.<br>
+                    No more discussion.<br>
+                    You order. You eat.<br>
+                    You argue over what to stream tonight.
+                </p>
+            </section>
+
         <!-- TO-DO: ADD ARROW/LOCATION ICON -->
-        <input id="zip" type="text">
-        <select id="radius">
-            <option value="radius-m">--Radius (Miles)--</option>
-            <option value="one-mile">1 Mile</option>
-            <option value="five-miles">5 Miles</option>
-            <option value="ten-miles">10 Miles</option>
-            <option value="fifteen-miles">15 Miles</option>
-        </select>
-        <!-- TO-DO: ADD ICON -->
+            <div>
+                <!-- TO-DO: GET THE PRE-INPUT TO CLEAR WHEN CLICKED ON IT -->
+                <input id="zip" type="text" style="margin-right: 10px;" value="Zip Code / Location">
+                <select id="radius">
+                    <option value="radius-m">--Radius (Miles)--</option>
+                    <option value="one-mile">1 Mile</option>
+                    <option value="five-miles">5 Miles</option>
+                    <option value="ten-miles">10 Miles</option>
+                    <option value="fifteen-miles">15 Miles</option>
+                </select>
+                <!-- TO-DO: ADD ICON -->
+            </div>
 
-        
-        <div id="food-criteria">
-            <!-- TO-DO: ADD CAR ICON -->
-            <section id="delivery-options">
-                <label id="delivery" class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-                <!-- MIGHT WANT TO FIX THE H4 FORMATTING LATER -->
-                <h4>Delivery</h4> 
+            <div id="food-criteria">
+                <!-- TO-DO: ADD CAR ICON -->
+                <section id="delivery-options">
+                    <label id="delivery" class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>Delivery</p> 
 
-                <label id="takeout" class="switch">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-                <!-- MIGHT WANT TO FIX THE H4 FORMATTING LATER -->
-                <h4>Take Out</h4>
-            </section>
+                    <label id="takeout" class="switch">
+                        <input type="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>Take Out</p>
+                </section>
+                
+                <section id="preferences">
+                    <input type="checkbox"> Food Preference 1 <br>
+                    <input type="checkbox"> Food Preference 2<br>
+                    <input type="checkbox"> Food Preference 3<br>
+                    <input type="checkbox"> Food Preference 4<br>
+                </section>
+            </div>
             
-            <section id="preferences">
-                <input type="checkbox"> Food Preference 1
-                <input type="checkbox"> Food Preference 2
-                <input type="checkbox"> Food Preference 3
-                <input type="checkbox"> Food Preference 4
-            </section>
-        </div>
-        
-        <button id="choose">Choose My Restaurant</button>
+            <button id="choose">Choose My Restaurant</button>
+        </main>
+
+        <!-- Right side bar of favorited restaurants -->
+        <aside id="faves" class="col-sm-12 col-md-3">
+            <h3>Favorite Restaurants</h3>
+            <div id="fave-list"></div>
+        </aside>
+    </div>
+        <!-- TO-DO: MODAL -->
+        <!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
+        <div id="chosen-restaurant"></div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

@@ -1,3 +1,28 @@
+h1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin-bottom: 0px;
+}
+
+body {
+    text-align: center;
+}
+
+header section p {
+    margin-bottom: 0%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+aside {
+    background-color: rgb(68, 68, 68);
+    color: white;
+    padding: 10px;
+    height: 110vh;
+}
+
+
 /* SLIDER COPIED FROM W3 SCHOOLS. USING FOR TESTING HTML */
 /* The switch - the box around the slider */
 .switch {
