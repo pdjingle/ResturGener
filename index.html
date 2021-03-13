@@ -1,17 +1,75 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Restaurant Picker</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-</head>
+    <head>
+        <title>Restaurant Picker</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="./ALFbnch/style.css" />
+    </head>
 
+    <header>
+        <h1>
+            Save Your Date <br>
+            Restaurant Decision Maker
+        </h1>
+        <section>
+            <p>You will tell us where you are and how you want it.</p>
+            <p>We randomly pick ONE restaurant for you.</p>
+            <p>No more discussion.</p>
+            <p>You order. You eat.</p>
+            <p>You argue over what to stream tonight.</p>
+        </section>
+    </header>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./script.js"></script>
+    <!-- User inputs desired criteria for restaurant options -->
+    <body>
+        <!-- TO-DO: ADD ARROW/LOCATION ICON -->
+        <input id="zip" type="text">
+        <select id="radius">
+            <option value="radius-m">--Radius (Miles)--</option>
+            <option value="one-mile">1 Mile</option>
+            <option value="five-miles">5 Miles</option>
+            <option value="ten-miles">10 Miles</option>
+            <option value="fifteen-miles">15 Miles</option>
+        </select>
+        <!-- TO-DO: ADD ICON -->
+
+        
+        <div id="food-criteria">
+            <!-- TO-DO: ADD CAR ICON -->
+            <section id="delivery-options">
+                <label id="delivery" class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <!-- MIGHT WANT TO FIX THE H4 FORMATTING LATER -->
+                <h4>Delivery</h4> 
+
+                <label id="takeout" class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                <!-- MIGHT WANT TO FIX THE H4 FORMATTING LATER -->
+                <h4>Take Out</h4>
+            </section>
+            
+            <section id="preferences">
+                <input type="checkbox"> Food Preference 1
+                <input type="checkbox"> Food Preference 2
+                <input type="checkbox"> Food Preference 3
+                <input type="checkbox"> Food Preference 4
+            </section>
+        </div>
+        
+        <button id="choose">Choose My Restaurant</button>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+        <script src="./script.js"></script>
+
+    </body>
+
 </html>
