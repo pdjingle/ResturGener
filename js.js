@@ -24,10 +24,10 @@ $(document).ready(function () {
     function searchRestaurant(lat, lon, radius) {     
         $.ajax({
             type: "GET",
-            url: `https://maps.googleapis.com/maps/api/place/search/xml?location=${lat},${lon}&radius=${radius}&sensor=false&key=${GOOGLE_API_KEY}&types=restaurant`,
+            url:`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/search/xml?location=${lat},${lon}&radius=${radius}&sensor=false&key=AIzaSyDCYsuUyZg_pgQxwlajWhMgIDO2DvAw7TA&types=restaurant`,
             datatype: "json",
             success: function(data) {
-                console.log("search: " + data);
+                console.log(data);
             }
         })
     }
