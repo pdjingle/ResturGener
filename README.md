@@ -15,6 +15,7 @@ Your project should fulfill the following requirements:
 * Does not use alerts, confirms, or prompts (use modals).
 
 * Use client-side storage to store persistent data.
+
 * Be responsive.
 
 * Have a polished UI.
