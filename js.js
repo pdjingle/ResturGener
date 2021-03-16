@@ -1,37 +1,45 @@
 $(document).ready(function () {
-    var GOOGLE_API_KEY = "AIzaSyDCYsuUyZg_pgQxwlajWhMgIDO2DvAw7TA";
-    var ZIP_API_KEY = "VaVw3X6KKy4JhdiXkFJg0NpNfTXUHWHQWkwRv3lbkE33RpxiVa6kTdXuncyzYeGds";
+    var GOOGLE_API_KEY = "AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw";
+    // var ZIP_API_KEY = "VaVw3X6KKy4JhdiXkFJg0NpNfTXUHWHQWkwRv3lbkE33RpxiVa6kTdXuncyzYeGds";
 
     $("#choose").on("click", function(i) { 
         // i.preventDefault(); 
-        var zip = $("#czip").val();
-        console.log(zip);
-        getLatLon(zip);
+        var city = $("#location").val();
+        console.log(city);
+        searchRestaurant(city);
+        // getLatLon(zip);
     })
 
-    function getLatLon(zip) {
+    // function getLatLon(zip) {
+    //     $.ajax({
+    //         type: "GET",
+    //         url: `https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/${ZIP_API_KEY}/info.json/${zip}/degrees`,
+    //         datatype: "json",
+    //         success: function(data) {
+    //             console.log(data);
+    //         }
+    //     })
+    // }
+
+    function searchRestaurant(city) {
+    // function searchRestaurant(lat, lon, radius) {     
         $.ajax({
             type: "GET",
-            url: `https://www.zipcodeapi.com/rest/${ZIP_API_KEY}/info.json/${zip}/degrees`,
-            datatype: "json",
-            success: function(data) {
-                console.log("getLatLon: " + data);
-            }
-        })
-    }
-
-
-    function searchRestaurant(lat, lon, radius) {     
-        $.ajax({
-            type: "GET",
-            url:`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/search/xml?location=${lat},${lon}&radius=${radius}&sensor=false&key=AIzaSyDCYsuUyZg_pgQxwlajWhMgIDO2DvAw7TA&types=restaurant`,
+            // url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=${radius}&type=restaurant&key=${GOOGLE_API_KEY}`,
+            url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/xml?query=restaurants+in+${city}&key=${GOOGLE_API_KEY}`,
+                                                                 
+            // async: true,
             datatype: "json",
             success: function(data) {
                 console.log(data);
+                
             }
         })
     }
 
-    searchRestaurant(37.423021, -122.083739, 5);
+    // getLatLon(53223);
+    // searchRestaurant(43.0389, 87.9065, 50);
+
+
 
 })
