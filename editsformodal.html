@@ -1,0 +1,85 @@
+</div>
+<!-- TO-DO: MODAL -->
+<!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
+<div class="modal">
+<div class="modal_contents">
+    <div class="modal_close-bar">
+        <span>X</span>
+    </div>
+    <div id="chosen-restaurant">
+    <p>Do you want to save this restaurant as a favorite?</p>
+    <button>Yes. Add as a favorite.</button>
+
+    <p>Do you want this information texted to you?</p>
+    <form>
+        <input type="telephone-number" placeholder="Your cell number">
+        <button>Text me this Result</button>
+    </form>
+    </div>
+</div>
+</div>
+
+
+
+/* beginning of modal css */
+.modal {
+    position: absolute;
+    top:1;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+    &.hidden {
+        display: none;
+    }
+    &._close-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: -1rem;
+      margin-top: -1rem;
+      cursor: pointer;
+    }
+    &._contents {
+        background color: #ggg;
+        padding: auto;
+        input[type=telephone-number] {
+            width: 100%;
+            padding: .5rem;
+        }
+    }
+    button {
+        width: 100%;
+        padding: .5rem;
+        background-color: azure;
+        border: none;
+        color:cadetblue;
+        transition: all .4s ease-in-out;
+        &._hover:{
+            background-color: #fff;
+        } 
+    }
+}
+
+
+// Modal code below
+const toggleModal = () => {
+    // modal stays hidden until otherwise informed
+    document.querySelector('.modal').classList.toggle('modal--hidden');
+;
+// modal is revealed based on a click
+document.querySelector("#show-modal").addEventListener('click', toggleModal);
+
+// modal is revealed based upon clicking of the "choose" button
+document.querySelector("#choose").addEventListener('submit',(event) => {
+    event.preventDefault();
+    toggleModal();
+    });
+
+    // modal may be closed by user by clicking the "X" in 
+    // the upper-right corner of the modal
+document.querySelector(".modal_close-bar span").addEventListener('click', toggleModal);
+
+document.querySelector('#submit').addEventListener('click', toggleModal);
+};
+
