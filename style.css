@@ -1,0 +1,51 @@
+/* Save the Date/Decision Maker */
+h1 {
+color: antiquewhite;
+font-family:'Times New Roman', Times, serif
+font-size: smaller;
+}
+
+/* Previous Search/Favorite Resurants */
+h3 {
+    color: antiquewhite
+    font-family:'Times New Roman', Times, serif
+    font-size: smaller;  
+}
+
+/* Main text on the program  */
+ main {
+color: rgb(187, 133, 236);
+font-family: 'Times New Roman', Times, serif
+font-size: smaller; 
+ }
+
+/* Input boxes
+input {
+    color: red
+    font-family:'Times New Roman', Times, serif
+    font-size: smaller;  
+} */
+
+#section {
+color: red
+font-family: 'Times New Roman', Times, serif
+font-size: smaller; 
+}
+
+#label {
+    color: red
+font-family: 'Times New Roman', Times, serif
+font-size: smaller; 
+}
+
+#button {
+    color: red
+font-family: 'Times New Roman', Times, serif
+font-size: smaller; 
+}
+
+#id {
+    color: red
+font-family: 'Times New Roman', Times, serif
+font-size: smaller; 
+}
