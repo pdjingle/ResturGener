@@ -47,7 +47,26 @@ $(document).ready(function () {
             datatype: "json",
             success: function(data) {
                 console.log(data);
-                
+                // Modal JavaScript code below
+                const toggleModal = () => {
+    // modal stays hidden until otherwise informed
+    document.querySelector('.modal').classList.toggle('modal--hidden');
+;
+// modal is revealed based on a click
+document.querySelector("#show-modal").addEventListener('click', toggleModal);
+
+// modal is revealed based upon clicking of the "choose" button
+document.querySelector("#choose").addEventListener('submit',(event) => {
+    event.preventDefault();
+    toggleModal();
+    });
+
+    // modal may be closed by user by clicking the "X" in 
+    // the upper-right corner of the modal
+document.querySelector(".modal_close-bar span").addEventListener('click', toggleModal);
+
+document.querySelector('#submit').addEventListener('click', toggleModal);
+}; 
             }
         })
     }

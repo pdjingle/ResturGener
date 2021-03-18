@@ -87,3 +87,43 @@ aside {
     border-radius: 50%;
   }
   /* END OF COPIED TEXT */
+
+  /* beginning of modal css */
+.modal {
+  position: absolute;
+  top:1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center
+  &.hidden {
+      display: none;
+  }
+  &._close-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -1rem;
+    margin-top: -1rem;
+    cursor: pointer;
+  }
+  &._contents {
+      background color: #ggg;
+      padding: auto;
+      input[type=telephone-number] {
+          width: 100%;
+          padding: .5rem;
+      }
+  }
+  button {
+      width: 100%;
+      padding: .5rem;
+      background-color: azure;
+      border: none;
+      color:cadetblue;
+      transition: all .4s ease-in-out;
+      &._hover:{
+          background-color: #fff;
+      } 
+  }
+}
