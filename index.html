@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="style.css">
-    <head>
-        <title>Restaurant Picker</title>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="./style.css" />
-    </head>
+<link rel="stylesheet" href="style.css">
 
-    <header>
-        <h1>
-            Save Your Date <br>
-            Restaurant Decision Maker
-        </h1>
+<head>
+    <title>Restaurant Picker</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
 
-    </header>
+<header>
+    <h1>
+        Save Your Date <br>
+        Restaurant Decision Maker
+    </h1>
 
-    <!-- User inputs desired criteria for restaurant options -->
-    <body>
-        <div class="row">
+</header>
+
+<!-- User inputs desired criteria for restaurant options -->
+
+<body>
+    <div class="row">
         <!-- Left side bar of previously searched restaurants -->
         <aside id="prev" class="col-sm-12 col-md-3">
             <h3>Previous Searches</h3>
@@ -38,36 +40,20 @@
                 </p>
             </section>
 
-        <!-- TO-DO: ADD ARROW/LOCATION ICON -->
-            <div>
-                <input id="location" type="text" style="margin-right: 10px;" placeholder="Location" value="">
-                <select id="radius">
-                    <option>--Radius (Miles)--</option>
-                    <option value="1">1 Mile</option>
-                    <option value="5">5 Miles</option>
-                    <option value="10">10 Miles</option>
-                    <option value="15">15 Miles</option>
-                </select>
-                <!-- TO-DO: ADD ICON -->
-            </div>
+            <form>
+                <!-- TO-DO: ADD ARROW/LOCATION ICON -->
+                <div>
+                    <input id="location" type="text" style="margin-right: 10px;" placeholder="Location" value="">
+                    <select id="radius">
+                        <option>--Radius (Miles)--</option>
+                        <option value="1">1 Mile</option>
+                        <option value="5">5 Miles</option>
+                        <option value="10">10 Miles</option>
+                        <option value="15">15 Miles</option>
+                    </select>
+                    <!-- TO-DO: ADD ICON -->
+                </div>
 
-            <div id="food-criteria">
-                <!-- TO-DO: ADD CAR ICON -->
-                <!-- NO DELIVERY OPTIONS IN THE API RESULTS -->
-                <!-- <section id="delivery-options">
-                    <label id="delivery" class="switch">
-                        <input type="checkbox" id="deliv">
-                        <span class="slider round"></span>
-                    </label>
-                    <p>Delivery</p> 
-
-                    <label id="takeout" class="switch" value="take">
-                        <input type="checkbox" id="take">
-                        <span class="slider round"></span>
-                    </label>
-                    <p>Take Out</p>
-                </section> -->
-                
                 <select id="rating">
                     <option>--Minimum Star Rating--</option>
                     <option value="1">1 Star</option>
@@ -83,9 +69,18 @@
                     <option value="2">$$</option>
                     <option value="3">$$$</option>
                 </select>
-            </div>
-            
-            <button id="choose">Choose My Restaurant</button>
+
+                <div id="food-criteria">
+                    <label id="bar-opt" class="switch" value="bar">
+                        <input type="checkbox" id="bar">
+                        <span class="slider round"></span>
+                    </label>
+                    <p>Bar</p>
+
+                </div>
+
+                <input id="choose" type="submit" value="Choose My Restaurant"></input>
+            </form>
         </main>
 
         <!-- Right side bar of favorited restaurants -->
@@ -94,30 +89,31 @@
             <div id="fave-list"></div>
         </aside>
     </div>
-   <!-- Modal HTML -->
-<!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
-<div class="modal">
-    <div class="modal_contents">
-        <div class="modal_close-bar">
-            <span>X</span>
-        </div>
-        <div id="chosen-restaurant">
-        <p>Do you want to save this restaurant as a favorite?</p>
-        <button>Yes. Add as a favorite.</button>
-    
-        <p>Do you want this information texted to you?</p>
-        <form>
-            <input type="telephone-number" placeholder="Your cell number">
-            <button>Text me this Result</button>
-        </form>
+    <!-- Modal HTML -->
+    <!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
+    <div class="modal">
+        <div class="modal_contents">
+            <div class="modal_close-bar">
+                <span>X</span>
+            </div>
+            <div id="chosen-restaurant">
+                <p>Do you want to save this restaurant as a favorite?</p>
+                <button>Yes. Add as a favorite.</button>
+
+                <p>Do you want this information texted to you?</p>
+                <form>
+                    <input type="telephone-number" placeholder="Your cell number">
+                    <button>Text me this Result</button>
+                </form>
+            </div>
         </div>
     </div>
-    </div>
-        <div id="chosen-restaurant"></div>
+    <div id="chosen-restaurant"></div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <script src="./js.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./js.js"></script>
 
-    </body>
+</body>
+
 </html>

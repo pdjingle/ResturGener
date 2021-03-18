@@ -4,9 +4,9 @@ $(document).ready(function () {
 
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function (i) {
+        i.preventDefault();
         rOptions = [];
         var location = $("#location").val();
-        console.log(location);
         getLatLon(location);
     })
 
@@ -50,10 +50,10 @@ $(document).ready(function () {
                 // MIGHT WANT TO MAKE THIS AND THE MODAL ITS OWN FUNCTION
                 let resultsArr = data.results;
                 makeResultsArr(resultsArr);
-                
+
                 // chooses a random restaurant from the user-specified results
                 let randomNum = Math.floor(Math.random() * rOptions.length);
-                let chosenRest = rOptions[randomNum]; 
+                let chosenRest = rOptions[randomNum];
                 console.log(chosenRest);
 
                 // Modal JavaScript code below
@@ -83,12 +83,8 @@ $(document).ready(function () {
     function makeResultsArr(resultsArr) {
         console.log(resultsArr);
         resultsArr.forEach(function (r) {
-            console.log(r);
-            let operating = r.opening_hours.open_now;
-            console.log(operating);
-            
-            if (operating) {
-                console.log(r.opening_hours.open_now);
+            let operating = r.opening_hours;
+            if (operating !== undefined && operating.open_now) {
                 if (r.rating >= parseInt($("#rating").val())) {
                     if (parseInt($("#rating").val()) === undefined) {
                         alert("Choose a rating."); // TO-DO: NOT USE ALERTS. USE MODALS.
@@ -97,28 +93,21 @@ $(document).ready(function () {
                         if (parseInt($("#price").val()) === undefined) {
                             alert("Choose a price level."); // TO-DO: NOT USE ALERTS. USE MODALS.
                         }
-                        rOptions.push(r);
-                        
-                        // delivery and/or takeout options
-                        // let takeout = $("#take");
-                        // let delivery =$("#deliv");
 
-                        // if (delivery.is(':checked') && !take.is(':checked')) {
-
-                        //     rOptions.push(r);
-                        // }
-                        // else if (delivery.is(':checked') && take.is(':checked')) {
-
-                        //     rOptions.push(r);
-                        // }
-                        // else {
-
-                        //     rOptions.push(r);
-                        // }
+                        // toggle option
+                        let barOpt = $("#bar").is(':checked');
+                        r.types.forEach(function (t) {
+                            if (barOpt && t === "bar") {
+                                rOptions.push(r);
+                            }
+                        })
+                        if(rOptions.indexOf(r) === -1) {
+                            rOptions.push(r);
+                        }
                     }
                 }
             }
-        }) 
-        console.log(rOptions);          
+        })
+        console.log(rOptions);
     }
 })
