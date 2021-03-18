@@ -63,8 +63,8 @@ $(document).ready(function () {
 
                 console.log(resultsArr);
                 let randomNum = Math.floor(Math.random() * resultsArr.length); 
-                resultsArr[randomNum]; // random restaurant chosen
-
+                let chosenRest = resultsArr[randomNum]; // random restaurant chosen
+                console.log(chosenRest);
 
                 // Modal JavaScript code below
                 const toggleModal = () => {
