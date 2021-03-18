@@ -84,8 +84,25 @@
             <div id="fave-list"></div>
         </aside>
     </div>
-        <!-- TO-DO: MODAL -->
-        <!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
+   <!-- Modal HTML -->
+<!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
+<div class="modal">
+    <div class="modal_contents">
+        <div class="modal_close-bar">
+            <span>X</span>
+        </div>
+        <div id="chosen-restaurant">
+        <p>Do you want to save this restaurant as a favorite?</p>
+        <button>Yes. Add as a favorite.</button>
+    
+        <p>Do you want this information texted to you?</p>
+        <form>
+            <input type="telephone-number" placeholder="Your cell number">
+            <button>Text me this Result</button>
+        </form>
+        </div>
+    </div>
+    </div>
         <div id="chosen-restaurant"></div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
