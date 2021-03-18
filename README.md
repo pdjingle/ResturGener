@@ -125,3 +125,6 @@ Each member is required to submit the following:
 * The URL of the deployed application.
 
 * The URL of the GitHub repository.
+
+
+[Page link: https://pdjingle.github.io/ResturGener/](https://pdjingle.github.io/ResturGener/)
