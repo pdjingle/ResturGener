@@ -4,6 +4,7 @@ $(document).ready(function () {
 
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function(i) { 
+        rOptions = [];
         var location = $("#location").val();
         console.log(location);
         getLatLon(location);
@@ -29,7 +30,7 @@ $(document).ready(function () {
 
                 // to make sure the radius is a valid number
                 if (!$.isNumeric(radius)) {
-                    alert("Select a desired Radius.") // TO-DO: CANNOT HAVE ALERTS! NEED TO MAKE THIS A MODAL
+                    alert("Select a desired Radius."); // TO-DO: CANNOT HAVE ALERTS! NEED TO MAKE THIS A MODAL
                     return;
                 }
 
@@ -49,23 +50,18 @@ $(document).ready(function () {
                 // MIGHT WANT TO MAKE THIS AND THE MODAL ITS OWN FUNCTION
                 let resultsArr = data.results;
                 resultsArr.forEach(function (rResults) {
-                    rOptions.push(rResults);
+                    if (rResults.opening_hours) {
+                        if (rResults.rating >= parseInt($("#rating").val())) {
+                            if(rResults.price_level >= parseInt($("#price").val())) {
+                                rOptions.push(rResults);
+                            }
+                        }
+                    }
                 })
-
-                // for the next page(s)
-                // if (data.next_page_token !== undefined) {
-                //     let nextPageToken = data.next_page_token;
-                //     nextPages(lat, lon, radius, nextPageToken);
-                // }
-                // ajax with next page 
-                // add to rOptions
-                // console.log(rOptions);
-
-                console.log(resultsArr);
-                let randomNum = Math.floor(Math.random() * resultsArr.length); 
-                let chosenRest = resultsArr[randomNum]; // random restaurant chosen
+                let randomNum = Math.floor(Math.random() * rOptions.length); 
+                let chosenRest = rOptions[randomNum]; // random restaurant chosen
                 console.log(chosenRest);
-
+                console.log($("#takeout")[0]);
                 // Modal JavaScript code below
                 const toggleModal = () => {
     // modal stays hidden until otherwise informed
@@ -86,23 +82,6 @@ document.querySelector(".modal_close-bar span").addEventListener('click', toggle
 
 document.querySelector('#submit').addEventListener('click', toggleModal);
 }; 
-            }
-        })
-    }
-
-
-    function nextPages(lat, lon, radius, nextPageToken) {
-        $.ajax({
-            type: "GET",
-            url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=${radius}&type=restaurant&key=${GOOGLE_API_KEY}&pageToken=${nextPageToken}`,                                                          
-            datatype: "json",
-            success: function(dataPage) {
-                console.log(dataPage);
-                nextPageToken = dataPage.next_page_token;
-                if (nextPageToken !== undefined) {
-                    // nextPages(lat, lon, radius, dataPage.next_page_token);
-
-                }
             }
         })
     }

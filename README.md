@@ -4,7 +4,7 @@
 
 Your project should fulfill the following requirements:
 
-* Use a CSS framework other than Bootstrap.
+* Use a CSS framework other than Bootstrap. !!!!!!!!
 
 * Be deployed to GitHub Pages.
 
@@ -18,7 +18,7 @@ Your project should fulfill the following requirements:
 
 * Be responsive.
 
-* Have a polished UI.
+* Have a polished UI. CSS !!!!!!!
 
 * Have a clean repository that meets quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
 
