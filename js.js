@@ -1,9 +1,9 @@
 $(document).ready(function () {
     var GOOGLE_API_KEY = "AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw";
+    var rOptions = [];
 
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function(i) { 
-        // i.preventDefault(); 
         var location = $("#location").val();
         console.log(location);
         getLatLon(location);
@@ -46,7 +46,26 @@ $(document).ready(function () {
             url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=${radius}&type=restaurant&key=${GOOGLE_API_KEY}`,                                                          
             datatype: "json",
             success: function(data) {
-                console.log(data);
+                // MIGHT WANT TO MAKE THIS AND THE MODAL ITS OWN FUNCTION
+                let resultsArr = data.results;
+                resultsArr.forEach(function (rResults) {
+                    rOptions.push(rResults);
+                })
+
+                // for the next page(s)
+                // if (data.next_page_token !== undefined) {
+                //     let nextPageToken = data.next_page_token;
+                //     nextPages(lat, lon, radius, nextPageToken);
+                // }
+                // ajax with next page 
+                // add to rOptions
+                // console.log(rOptions);
+
+                console.log(resultsArr);
+                let randomNum = Math.floor(Math.random() * resultsArr.length); 
+                resultsArr[randomNum]; // random restaurant chosen
+
+
                 // Modal JavaScript code below
                 const toggleModal = () => {
     // modal stays hidden until otherwise informed
@@ -67,6 +86,23 @@ document.querySelector(".modal_close-bar span").addEventListener('click', toggle
 
 document.querySelector('#submit').addEventListener('click', toggleModal);
 }; 
+            }
+        })
+    }
+
+
+    function nextPages(lat, lon, radius, nextPageToken) {
+        $.ajax({
+            type: "GET",
+            url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=${radius}&type=restaurant&key=${GOOGLE_API_KEY}&pageToken=${nextPageToken}`,                                                          
+            datatype: "json",
+            success: function(dataPage) {
+                console.log(dataPage);
+                nextPageToken = dataPage.next_page_token;
+                if (nextPageToken !== undefined) {
+                    // nextPages(lat, lon, radius, dataPage.next_page_token);
+
+                }
             }
         })
     }
