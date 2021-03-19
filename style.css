@@ -1,3 +1,7 @@
+* {
+  max-width: 100%;
+}
+
 /* Save the Date/Decision Maker */
 h1 {
 color: antiquewhite;
@@ -16,25 +20,49 @@ body {
 /* Previous Search/Favorite Resurants */
 h3 {
     color: antiquewhite
-    font-family:'Times New Roman', Times, serif
+    font-family:'Times New Roman', Times, serif;
     font-size: smaller;  
 }
 
 /* Main text on the program  */
  main {
-color: rgb(187, 133, 236);
-font-family: 'Times New Roman', Times, serif
-font-size: smaller; 
-margin-bottom: 0%;
-font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: rgb(187, 133, 236);
+  font-family: 'Times New Roman', Times, serif
+  font-size: smaller; 
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
  }
 
- aside {
+header {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+aside,
+footer {
 background-color: rgb(68, 68, 68);
 color: white;
 padding: 10px;
-height: 110vh;
+width: 100%;
 }
+
+li {
+  list-style-type: none;
+}
+
+header section li {
+  display: inline;
+}
+
+a:link,
+a:visited {
+  color:  rgb(187, 133, 236);
+}
+
+a:hover {
+  color: white;
+}
+
 
 .switch {
     position: relative;
@@ -169,4 +197,4 @@ font-size: smaller;
     color: red
 font-family: 'Times New Roman', Times, serif
 font-size: smaller; 
-} */ */
+} */ 

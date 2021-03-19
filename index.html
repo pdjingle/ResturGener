@@ -1,21 +1,31 @@
 <!DOCTYPE html>
 <html>
-<link rel="stylesheet" href="style.css">
 
 <head>
     <title>Restaurant Picker</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 
-<header>
+<header id="top">
     <h1>
         Save Your Date <br>
         Restaurant Decision Maker
     </h1>
+    <div>
+        <section>
+            <li>
+                <a href="#search">Search</a>
+            </li>
+            <li>
+                <a href="#faves">Favorites</a>
+            </li>
+            <li>
+                <a href="#contact">Contact Me</a>
+            </li>
+        </section>
+    </div>
 
 </header>
 
@@ -24,12 +34,12 @@
 <body>
     <div class="row">
         <!-- Left side bar of previously searched restaurants -->
-        <aside id="prev" class="col-sm-12 col-md-3">
+        <aside id="prev">
             <h3>Previous Searches</h3>
             <div id="prev-list"></div>
         </aside>
 
-        <main class="col-sm-12 col-md-6">
+        <main id="search">
             <section>
                 <p>
                     You will tell us where you are and how you want it.<br>
@@ -74,6 +84,7 @@
                     <label id="bar-opt" class="switch" value="bar">
                         <input type="checkbox" id="bar">
                         <span class="slider round"></span>
+                        <p>Bar</p>
                     </label>
 
 
@@ -84,7 +95,7 @@
         </main>
 
         <!-- Right side bar of favorited restaurants -->
-        <aside id="faves" class="col-sm-12 col-md-3">
+        <aside id="faves">
             <h3>Favorite Restaurants</h3>
             <div id="fave-list"></div>
         </aside>
@@ -115,5 +126,23 @@
     <script src="./js.js"></script>
 
 </body>
+
+<footer style="font-size: xx-small;">
+    <section id="contact">
+        <h6 style="margin: 5px;">Contact Us</h6>
+        <li>
+            <span>Email: </span> <a href="mailto: someemail">someEmail</a>
+        </li>
+        <li>
+            <span>Phone: </span>RES-GEN-0000
+        </li>
+        <li>
+            <a href="#top">Back to Top</a>
+        </li>
+    </section>
+    <p>
+        &copy; 2021 Restaurant Generator, Northwestern Coding Bootcamp.
+    </p>
+</footer>
 
 </html>
