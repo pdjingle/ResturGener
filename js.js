@@ -1,6 +1,17 @@
 $(document).ready(function () {
     var GOOGLE_API_KEY = "AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw";
     var rOptions = [];
+    // get the modal
+    // var modal = document.getElementById("myModal");
+    // get button that opens modal
+        //  var btn = document.getElementById("choose");
+    // get the span elemen t that closes modal
+    // var span = document.getElementsByClassName ("close") [0];
+
+    // when user clicks on choose button, open the modal
+    // btn.onclick = function() {
+    //     modal.style.display = "block";
+    // }
 
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function (i) {
@@ -57,27 +68,27 @@ $(document).ready(function () {
                 console.log(chosenRest);
 
                 // Modal JavaScript code below
-                const toggleModal = () => {
+                // const toggleModal = () => {
                     // modal stays hidden until otherwise informed
-                    document.querySelector('.modal').classList.toggle('modal--hidden');
+                    // document.querySelector('.modal').classList.toggle('modal--hidden');
                     ;
                     // modal is revealed based on a click
-                    document.querySelector("#show-modal").addEventListener('click', toggleModal);
+                    // document.querySelector("#show-modal").addEventListener('click', toggleModal);
 
                     // modal is revealed based upon clicking of the "choose" button
-                    document.querySelector("#choose").addEventListener('submit', (event) => {
-                        event.preventDefault();
-                        toggleModal();
-                    });
+                    // document.querySelector("#choose").addEventListener('submit', (event) => {
+                    //     event.preventDefault();
+                    //     toggleModal();
+                    // };
 
                     // modal may be closed by user by clicking the "X" in 
                     // the upper-right corner of the modal
-                    document.querySelector(".modal_close-bar span").addEventListener('click', toggleModal);
+                    // document.querySelector(".modal_close-bar span").addEventListener('click', toggleModal);
 
-                    document.querySelector('#submit').addEventListener('click', toggleModal);
-                };
+                    // document.querySelector('#submit').addEventListener('click', toggleModal);
+                }
             }
-        })
+        )
     }
 
     function makeResultsArr(resultsArr) {
@@ -128,10 +139,10 @@ $(document).ready(function() {
 });
 
 // Local Storage: Storage 
-// localStorage.makeResultsArr = favorites
+localStorage.makeResultsArr = favorites
 
 // Retreieve 
-// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
 
 // Or different resturants 
 if (sessionStorage.clickcount) {
