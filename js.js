@@ -111,3 +111,33 @@ $(document).ready(function () {
         console.log(rOptions);
     }
 })
+
+// Resturant Array
+$(document).ready(function() {
+    var favorites = [];
+    var counter = 0;
+
+    $('.favorite').click(function() {
+        ++counter;
+        favorites.push("\"" + $(this).text() + " " + counter + "\"");
+    });
+
+    $('#reveal').click(function() {
+       alert(favorites); 
+    });
+});
+
+// Local Storage: Storage 
+localStorage.makeResultsArr = favorites
+
+// Retreieve 
+document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+// Or different resturants 
+if (sessionStorage.clickcount) {
+    sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+  } else {
+    sessionStorage.clickcount = 1;
+  }
+  document.getElementById("result").innerHTML = "You have saves this resturant " +
+  sessionStorage.clickcount + " Saved Resturant ";
