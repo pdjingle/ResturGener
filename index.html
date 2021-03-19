@@ -5,6 +5,10 @@
     <title>Restaurant Picker</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/base-min.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 
@@ -32,14 +36,14 @@
 <!-- User inputs desired criteria for restaurant options -->
 
 <body>
-    <div class="row">
+    <div class="pure-g">
         <!-- Left side bar of previously searched restaurants -->
-        <aside id="prev">
+        <aside id="prev" class="pure-u-1 pure-u-md-1-5">
             <h3>Previous Searches</h3>
             <div id="prev-list"></div>
         </aside>
 
-        <main id="search">
+        <main id="search" class="pure-u-1 pure-u-md-3-5">
             <section>
                 <p>
                     You will tell us where you are and how you want it.<br>
@@ -95,7 +99,7 @@
         </main>
 
         <!-- Right side bar of favorited restaurants -->
-        <aside id="faves">
+        <aside id="faves" class="pure-u-1 pure-u-md-1-5">
             <h3>Favorite Restaurants</h3>
             <div id="fave-list"></div>
         </aside>
