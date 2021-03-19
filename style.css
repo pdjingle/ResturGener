@@ -1,64 +1,93 @@
-/* Save the Date/Decision Maker */
-h1 {
-color: antiquewhite;
-font-family:'Times New Roman', Times, serif
-font-size: smaller;
-text-align: center;
-background-color: black;
-padding: 20px;
-margin-bottom: 0px;
-}
-
-
 body {
     text-align: center;
+    background-color: rgb(172, 224, 224);
 }
-/* Previous Search/Favorite Resurants */
-h3 {
-    color: antiquewhite
+
+
+h3,
+p {
     font-family:'Times New Roman', Times, serif;
-    font-size: smaller;  
+    margin: 0;
 }
 
-/* Main text on the program  */
- main {
-  color: rgb(187, 133, 236);
-  font-family: 'Times New Roman', Times, serif
-  font-size: smaller; 
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
- }
-
-header {
-  background-color: black;
-  color: white;
+header,
+footer  {
+  background-color: rgb(68, 68, 68);
+  color: antiquewhite;
   padding: 10px;
+  text-align: center;
+  font-family:'Times New Roman', Times, serif;
+  margin-top: -10px;
+}
+
+footer {
+  font-size: small;
 }
 
 aside,
-footer {
-background-color: rgb(68, 68, 68);
-color: white;
+main {
+background-color: rgb(117, 117, 117);;
+color:  antiquewhite;
+font-family: 'Times New Roman', Times, serif;
+padding: 10px;
 }
 
-li {
-  list-style-type: none;
+.pure-g [class*=pure-u] {
+  border: solid;
+  border-color:rgb(187, 133, 236);
+}
+
+.row,
+header div li {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.row {
+  margin: 10px;
+  max-width: 90%;
+  margin-left: 5%;
 }
 
 header section {
   display: flex;
   flex-direction:row;
   justify-content: space-around;
+  max-width: 60%;
+  margin-left: 20%;
 }
+
+.box {
+  align-content: space-around;
+  margin-bottom: 10px;
+}
+
+span {
+  font-weight: bold;
+}
+
+li {
+  list-style-type: none;
+}
+
 
 a:link,
 a:visited {
   color:  rgb(187, 133, 236);
+  text-decoration: none;
 }
 
 a:hover {
   color: white;
 }
 
+.resBtn {
+  background-color: rgb(187, 133, 236);
+  color:  rgb(68, 68, 68);
+  padding: 10px;
+  font-family: 'Times New Roman', Times, serif;
+  cursor: pointer;
+}
 
 .switch {
     position: relative;
@@ -121,7 +150,6 @@ a:hover {
   .slider.round:before {
     border-radius: 50%;
   }
-  /* END OF COPIED TEXT */
 
   /* beginning of modal css */
 
