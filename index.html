@@ -15,9 +15,10 @@
 <body>
     <header id="top">
         <h1>
-            Save Your Date <br>
-            Restaurant Decision Maker
+            Save Your Date
         </h1>
+        <h2>
+            Restaurant Decision Maker</h2>
         <div>
             <section>
                 <li>
@@ -55,10 +56,10 @@
                     </p>
                 </section>
 
-                <form style="margin-top: 10px;">
+                <form class="res-form">
                     <!-- TO-DO: ADD ARROW/LOCATION ICON -->
                     <div>
-                        <input id="location" type="text" style="margin-right: 10px;" placeholder="Location" value="">
+                        <input id="location" type="text" placeholder="Location" value="">
                         <select id="radius">
                             <option>--Radius (Miles)--</option>
                             <option value="1">1 Mile</option>
@@ -85,14 +86,11 @@
                         <option value="3">$$$</option>
                     </select>
 
-                    <div id="food-criteria">
-                        <label id="bar-opt" class="switch" value="bar">
-                            <input type="checkbox" id="bar">
-                            <span class="slider round"></span>
-                            <p>Bar</p>
+                    <div id="other-opt" class="toggle">
+                        <h4>Other Options:</h4>
+                        <label id="bar-opt" value="bar">Bar
+                            <input type="checkbox" class="checkbox" id="bar">
                         </label>
-
-
                     </div>
 
                     <input id="choose" type="submit" value="Choose My Restaurant" class="resBtn"></input>
