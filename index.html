@@ -12,101 +12,103 @@
     <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
 
-<header id="top">
-    <h1>
-        Save Your Date <br>
-        Restaurant Decision Maker
-    </h1>
-    <div>
-        <section>
-            <li>
-                <a href="#search">Search</a>
-            </li>
-            <li>
-                <a href="#faves">Favorites</a>
-            </li>
-            <li>
-                <a href="#contact">Contact Me</a>
-            </li>
-        </section>
-    </div>
-
-</header>
-
-<!-- User inputs desired criteria for restaurant options -->
-
 <body>
-    <div class="pure-g">
-        <!-- Left side bar of previously searched restaurants -->
-        <aside id="prev" class="pure-u-1 pure-u-md-1-5">
-            <h3>Previous Searches</h3>
-            <div id="prev-list"></div>
-        </aside>
-
-        <main id="search" class="pure-u-1 pure-u-md-3-5">
+    <header id="top">
+        <h1>
+            Save Your Date <br>
+            Restaurant Decision Maker
+        </h1>
+        <div>
             <section>
-                <p>
-                    You will tell us where you are and how you want it.<br>
-                    We randomly pick ONE restaurant for you.<br>
-                    No more discussion.<br>
-                    You order. You eat.<br>
-                    You argue over what to stream tonight.
-                </p>
+                <li>
+                    <a href="#search">Search</a>
+                </li>
+                <li>
+                    <a href="#faves">Favorites</a>
+                </li>
+                <li>
+                    <a href="#contact">Contact Me</a>
+                </li>
             </section>
+        </div>
 
-            <form>
-                <!-- TO-DO: ADD ARROW/LOCATION ICON -->
-                <div>
-                    <input id="location" type="text" style="margin-right: 10px;" placeholder="Location" value="">
-                    <select id="radius">
-                        <option>--Radius (Miles)--</option>
-                        <option value="1">1 Mile</option>
-                        <option value="5">5 Miles</option>
-                        <option value="10">10 Miles</option>
-                        <option value="15">15 Miles</option>
+    </header>
+
+    <!-- User inputs desired criteria for restaurant options -->
+
+    <div>
+        <div class="pure-g row">
+            <!-- Left side bar of previously searched restaurants -->
+            <aside id="prev" class="box pure-u-1 pure-u-md-1-6">
+                <h3>Previous Searches</h3>
+                <div id="prev-list"></div>
+            </aside>
+
+            <main id="search" class="box pure-u-1 pure-u-md-11-24">
+                <section>
+                    <p>
+                        You will tell us where you are and how you want it.<br>
+                        We randomly pick ONE restaurant for you.<br>
+                        No more discussion.<br>
+                        You order. You eat.<br>
+                        You argue over what to stream tonight.
+                    </p>
+                </section>
+
+                <form style="margin-top: 10px;">
+                    <!-- TO-DO: ADD ARROW/LOCATION ICON -->
+                    <div>
+                        <input id="location" type="text" style="margin-right: 10px;" placeholder="Location" value="">
+                        <select id="radius">
+                            <option>--Radius (Miles)--</option>
+                            <option value="1">1 Mile</option>
+                            <option value="5">5 Miles</option>
+                            <option value="10">10 Miles</option>
+                            <option value="15">15 Miles</option>
+                        </select>
+                        <!-- TO-DO: ADD ICON -->
+                    </div>
+
+                    <select id="rating">
+                        <option>--Minimum Star Rating--</option>
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="5">5 Stars</option>
                     </select>
-                    <!-- TO-DO: ADD ICON -->
-                </div>
 
-                <select id="rating">
-                    <option>--Minimum Star Rating--</option>
-                    <option value="1">1 Star</option>
-                    <option value="2">2 Stars</option>
-                    <option value="3">3 Stars</option>
-                    <option value="4">4 Stars</option>
-                    <option value="5">5 Stars</option>
-                </select>
+                    <select id="price">
+                        <option>--Minimum Price Level--</option>
+                        <option value="1">$</option>
+                        <option value="2">$$</option>
+                        <option value="3">$$$</option>
+                    </select>
 
-                <select id="price">
-                    <option>--Minimum Price Level--</option>
-                    <option value="1">$</option>
-                    <option value="2">$$</option>
-                    <option value="3">$$$</option>
-                </select>
-
-                <div id="food-criteria">
-                    <label id="bar-opt" class="switch" value="bar">
-                        <input type="checkbox" id="bar">
-                        <span class="slider round"></span>
-                        <p>Bar</p>
-                    </label>
+                    <div id="food-criteria">
+                        <label id="bar-opt" class="switch" value="bar">
+                            <input type="checkbox" id="bar">
+                            <span class="slider round"></span>
+                            <p>Bar</p>
+                        </label>
 
 
-                </div>
+                    </div>
 
-                <input id="choose" type="submit" value="Choose My Restaurant"></input>
-            </form>
-        </main>
+                    <input id="choose" type="submit" value="Choose My Restaurant" class="resBtn"></input>
+                </form>
+            </main>
 
-        <!-- Right side bar of favorited restaurants -->
-        <aside id="faves" class="pure-u-1 pure-u-md-1-5">
-            <h3>Favorite Restaurants</h3>
-            <div id="fave-list"></div>
-        </aside>
-    </div>
-    <!-- Modal HTML -->
-    <!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
-    <div class="modal">
+            <!-- Right side bar of favorited restaurants -->
+            <aside id="faves" class="box pure-u-1 pure-u-md-1-6">
+                <h3>Favorite Restaurants</h3>
+                <div id="fave-list"></div>
+            </aside>
+        </div>
+
+        <!-- Modal HTML -->
+        <!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
+        <!-- <div class="modal">
         <div class="modal_contents">
             <div class="modal_close-bar">
                 <span>X</span>
@@ -123,30 +125,31 @@
             </div>
         </div>
     </div>
-    <div id="chosen-restaurant"></div>
+    <div id="chosen-restaurant"></div> -->
+
+    </div>
+
+    <footer style="padding: 25px;">
+        <section id="contact">
+            <h3 style="margin-bottom: 5px;">Contact Us</h3>
+            <li>
+                <span>Email: </span> <a href="mailto: someemail">resgenteam21@gmail.com</a>
+            </li>
+            <li>
+                <span>Phone: </span>RES-GEN-0000
+            </li>
+            <li>
+                <a href="#top">Back to Top</a>
+            </li>
+        </section>
+        <p style="margin-top: 20px">
+            &copy; 2021 Restaurant Generator, Northwestern Coding Bootcamp.
+        </p>
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./js.js"></script>
-
 </body>
-
-<footer style="font-size: xx-small;">
-    <section id="contact">
-        <h6 style="margin: 5px;">Contact Us</h6>
-        <li>
-            <span>Email: </span> <a href="mailto: someemail">someEmail</a>
-        </li>
-        <li>
-            <span>Phone: </span>RES-GEN-0000
-        </li>
-        <li>
-            <a href="#top">Back to Top</a>
-        </li>
-    </section>
-    <p>
-        &copy; 2021 Restaurant Generator, Northwestern Coding Bootcamp.
-    </p>
-</footer>
 
 </html>
