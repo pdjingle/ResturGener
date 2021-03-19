@@ -128,10 +128,10 @@ $(document).ready(function() {
 });
 
 // Local Storage: Storage 
-localStorage.makeResultsArr = favorites
+// localStorage.makeResultsArr = favorites
 
 // Retreieve 
-document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
 
 // Or different resturants 
 if (sessionStorage.clickcount) {
@@ -139,5 +139,5 @@ if (sessionStorage.clickcount) {
   } else {
     sessionStorage.clickcount = 1;
   }
-  document.getElementById("result").innerHTML = "You have saves this resturant " +
+//   document.getElementById("result").innerHTML = "You have saves this resturant " +
   sessionStorage.clickcount + " Saved Resturant ";
