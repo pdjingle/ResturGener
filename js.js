@@ -1,6 +1,31 @@
 $(document).ready(function () {
     var GOOGLE_API_KEY = "AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw";
     var rOptions = [];
+    var prevArr = localStorage.getItem("res") || []; // array of searched cities
+
+
+
+// creates the button list of the last 10 searched cities
+function createMenu() {
+    console.log(prevArr);
+    // console.log(localStorage);
+
+    let prevList = $("#prev-list").text("");
+    if (prevArr.length > 0) {
+        for (var i = 0; i < prevArr.length; i++) {
+            var prevRes = prevArr[i];
+            var resBtn = $("<button>").css("text-transform", "capitalize").val(prevRes).text(prevRes).addClass("resBtn").attr("type", "button");
+            prevList.prepend(resBtn);
+            resBtn.click(resBtnFunc);
+        }
+    }
+}
+
+// list of the last 10 searched locations
+createMenu();
+
+
+
 
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function (i) {
@@ -59,6 +84,18 @@ $(document).ready(function () {
                 let randomNum = Math.floor(Math.random() * rOptions.length);
                 let chosenRest = rOptions[randomNum];
                 modalDisplay(chosenRest);
+
+                // adds to the previous searches bar. Only displays the previous 10 searches.
+                if(prevArr.indexOf(chosenRest) === -1) {
+                    prevArr.push(chosenRest);
+                    if (prevArr.length > 10) { // makes sure the list of previously searched city is limited to 10
+                        prevArr.shift();
+                    }
+                    // console.log(prevArr);
+                    localStorage.setItem("res", prevArr);
+                    console.log(localStorage.getItem("res"));
+                    createMenu();
+                }
             }
         })
     }
@@ -116,22 +153,27 @@ $(document).ready(function () {
     $("#modal_close").on('click', function (i) {
         $("#res-modal").addClass("modal_hidden");
     })
+
+    function resBtnFunc(event) {
+        event.preventDefault();
+        modalDisplay($(this).val());
+    }
 })
 
 // // Saved Past Searches 
-function chosenrest(resturant);
-var recentSeraches = chosenRest();
-localStorage.getItem("resentSearches");
-var recentSearches
-}); */
+// function chosenrest(resturant);
+// var recentSeraches = chosenRest();
+// localStorage.getItem("resentSearches");
+// var recentSearches
+// });
 
-function displayRecentSearch();
-var recentSeraches = chosenRest();
-localStorage.getItem("prev");
-var recentSearches
-}); */
+// function displayRecentSearch();
+// var recentSeraches = chosenRest();
+// localStorage.getItem("prev");
+// var recentSearches
+// });
 
-var pastSearches = [];
+// var pastSearches = [];
 
 // if(localStorage["chosenRest"]) {
 //      pastSearches = JSON.parse(localStorage["ChosenRest"]);
@@ -249,10 +291,6 @@ var pastSearches = [];
 
 
 
-<<<<<<< HEAD
-// // // Retreieve 
-// // document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
-=======
 
 // // Retreieve 
 // document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
@@ -260,7 +298,6 @@ var pastSearches = [];
 
 // // Retreieve 
 // document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
->>>>>>> d892dfe39cf2f4730cd71c668f712a3114d4d16e
 
 // // // Or different resturants 
 // // if (sessionStorage.clickcount) {
@@ -271,12 +308,6 @@ var pastSearches = [];
 // // //   document.getElementById("result").innerHTML = "You have saves this resturant " +
 // //   sessionStorage.clickcount + " Saved Resturant ";
 
-<<<<<<< HEAD
-// // // Local Storage Favorities 
-// // localStorage.setItem("chosenrest");
-// // const restaurant = localStorage.getItem("chosenrest");
-// //     console.log(restaurant)
-=======
 // // Or different resturants 
 // if (sessionStorage.clickcount) {
 //     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
@@ -291,4 +322,3 @@ var pastSearches = [];
 // const restaurant = localStorage.getItem("chosenrest");
 //     console.log(restaurant)
 
->>>>>>> d892dfe39cf2f4730cd71c668f712a3114d4d16e
