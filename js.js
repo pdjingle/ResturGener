@@ -63,8 +63,8 @@ $(document).ready(function () {
         })
     }
 
+    // makes the array of the desired criteria
     function makeResultsArr(resultsArr) {
-        console.log(resultsArr);
         resultsArr.forEach(function (r) {
             let operating = r.opening_hours;
             if (operating !== undefined && operating.open_now) {
@@ -77,11 +77,11 @@ $(document).ready(function () {
                             alert("Choose a price level."); // TO-DO: NOT USE ALERTS. USE MODALS.
                         }
 
-                        // toggle option
+                        // checkbox option
                         let barOpt = $("#bar").is(':checked');
                         if (barOpt) {
                             r.types.forEach(function (t) {
-                                if (barOpt && t === "bar") {
+                                if (t === "bar") {
                                     rOptions.push(r);
                                 }
                             })
@@ -92,12 +92,12 @@ $(document).ready(function () {
                     }
                 }
             }
-        }) 
-        console.log(rOptions);
+        })
     }
 
     // gets the different data from the API to display on the modal
     function modalDisplay(chosenRest) {
+        console.log(chosenRest);
         let resDisplay = $("#chosen-restaurant");
                 let resName = $("#res-name").text(chosenRest.name);
                 let resIcon = $("#res-icon").attr("src", chosenRest.icon);
@@ -181,25 +181,6 @@ $(document).ready(function () {
 //     console.log(restaurant);
 	
 
-
-// // // Local Storage: Storage 
-// localStorage.makeResultsArr = favorites
-
-// // Retreieve 
-// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
-
-// // Or different resturants 
-// if (sessionStorage.clickcount) {
-//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-//   } else {
-//     sessionStorage.clickcount = 1;
-//   }
-// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
-//   sessionStorage.clickcount + " Saved Resturant ";
-
-
-
-  
 // // Local Storage: Storage 
 // localStorage.setItem('name');
 
@@ -220,8 +201,82 @@ $(document).ready(function () {
 //   }
 // //   document.getElementById("result").innerHTML = "You have saves this resturant " +
 //   sessionStorage.clickcount + " Saved Resturant ";
+// // localStorage.makeResultsArr = favorites
+
+// // // Retreieve 
+// // document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+// // // Local Storage: Storage 
+// localStorage.makeResultsArr = favorites
+
+// // Retreieve 
+// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+// // Or different resturants 
+// if (sessionStorage.clickcount) {
+//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+//   } else {
+//     sessionStorage.clickcount = 1;
+//   }
+// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+//   sessionStorage.clickcount + " Saved Resturant ";
+
+
+// // // Or different resturants 
+// // if (sessionStorage.clickcount) {
+// //     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+// //   } else {
+// //     sessionStorage.clickcount = 1;
+// //   }
+// // //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+// //   sessionStorage.clickcount + " Saved Resturant ";
+
+
+
+// // Local Storage: Storage 
+// localStorage.setItem('name');
+
+// // saves and returns the value ;
+// let favorite = localStorage.getItem('name');
+
+  
+// // Local Storage: Storage 
+// localStorage.setItem('name');
+
+// // saves and returns the value ;
+// let favorite = localStorage.getItem('name');
+
+
+
+
+
+// // Retreieve 
+// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+
+// // Retreieve 
+// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+// // Or different resturants 
+// if (sessionStorage.clickcount) {
+//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+//   } else {
+//     sessionStorage.clickcount = 1;
+//   }
+// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+//   sessionStorage.clickcount + " Saved Resturant ";
+
+// // Or different resturants 
+// if (sessionStorage.clickcount) {
+//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+//   } else {
+//     sessionStorage.clickcount = 1;
+//   }
+// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+//   sessionStorage.clickcount + " Saved Resturant ";
 
 // // Local Storage Favorities 
 // localStorage.setItem("chosenrest");
 // const restaurant = localStorage.getItem("chosenrest");
 //     console.log(restaurant)
+
