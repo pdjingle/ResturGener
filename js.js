@@ -72,7 +72,7 @@ $(document).ready(function () {
                     if (parseInt($("#rating").val()) === undefined) {
                         alert("Choose a rating."); // TO-DO: NOT USE ALERTS. USE MODALS.
                     }
-                    if (r.price_level >= parseInt($("#price").val())) {
+                    if (r.price_level <= parseInt($("#price").val())) {
                         if (parseInt($("#price").val()) === undefined) {
                             alert("Choose a price level."); // TO-DO: NOT USE ALERTS. USE MODALS.
                         }
