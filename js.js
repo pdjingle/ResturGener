@@ -139,7 +139,13 @@ $(document).ready(function() {
 });
 
 // Local Storage: Storage 
-localStorage.makeResultsArr = favorites
+localStorage.setItem('name');
+
+// saves and returns the value ;
+let favorite = localStorage.getItem('name');
+
+
+
 
 // Retreieve 
 document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
