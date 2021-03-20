@@ -79,18 +79,21 @@ $(document).ready(function () {
 
                         // toggle option
                         let barOpt = $("#bar").is(':checked');
-                        r.types.forEach(function (t) {
-                            if (barOpt && t === "bar") {
-                                rOptions.push(r);
-                            }
-                        })
-                        if (rOptions.indexOf(r) === -1) {
+                        if (barOpt) {
+                            r.types.forEach(function (t) {
+                                if (barOpt && t === "bar") {
+                                    rOptions.push(r);
+                                }
+                            })
+                        }
+                        else {
                             rOptions.push(r);
                         }
                     }
                 }
             }
-        })
+        }) 
+        console.log(rOptions);
     }
 
     // gets the different data from the API to display on the modal
