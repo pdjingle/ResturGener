@@ -125,60 +125,52 @@ localStorage.getItem("resentSearches");
 var recentSearches
 }); */
 
+function displayRecentSearch();
+var recentSeraches = chosenRest();
+localStorage.getItem("prev");
+var recentSearches
+}); */
 
+var pastSearches = [];
 
+if(localStorage["chosenRest"]) {
+     pastSearches = JSON.parse(localStorage["ChosenRest"]);
+}
 
+if(pastSearches.indexOf(search) == -1) {
+    pastSearches.unshift(search);
+    if(pastSearches.length > 5) { 
+       pastSearches.pop();
+    }
+    localStorage["ChosenRest"] = JSON.stringify(ChosenRest);
+}
 
+function drawPastSearches() {
+    if(pastSearches.length) {
+        var html = pastSearchesTemplate({search:pastSearches});
+        $("#pastSearches").html(html);
+    }
+}
 
+$(document).on("click", ".pastSearchLink", function(e) {
+    e.preventDefault();
+    var search = $(this).text();
+    doSearch(search);
+});
 
+// Resturant Array
+$(document).ready(function () {
+    var favorites = [];
+    var counter = 0;
 
+    $('.favorite').click(function () {
+        ++counter;
+        favorites.push("\"" + $(this).text() + " " + counter + "\"");
+    });
 
-
-
-
-
-
-
-// var pastSearches = [];
-
-// if(localStorage["chosenRest"]) {
-//      pastSearches = JSON.parse(localStorage["ChosenRest"]);
-// }
-
-// if(pastSearches.indexOf(search) == -1) {
-//     pastSearches.unshift(search);
-//     if(pastSearches.length > 5) { 
-//        pastSearches.pop();
-//     }
-//     localStorage["ChosenRest"] = JSON.stringify(ChosenRest);
-// }
-
-// function drawPastSearches() {
-//     if(pastSearches.length) {
-//         var html = pastSearchesTemplate({search:pastSearches});
-//         $("#pastSearches").html(html);
-//     }
-// }
-
-// $(document).on("click", ".pastSearchLink", function(e) {
-//     e.preventDefault();
-//     var search = $(this).text();
-//     doSearch(search);
-// });
-
-// // Resturant Array
-// $(document).ready(function () {
-//     var favorites = [];
-//     var counter = 0;
-
-//     $('.favorite').click(function () {
-//         ++counter;
-//         favorites.push("\"" + $(this).text() + " " + counter + "\"");
-//     });
-
-//     $('#reveal').click(function () {
-//         alert(favorites);
-//     });
+    $('#reveal').click(function () {
+        alert(favorites);
+    });
 
 
 // // Local Storage Favorities 
@@ -228,3 +220,8 @@ var recentSearches
 //   }
 // //   document.getElementById("result").innerHTML = "You have saves this resturant " +
 //   sessionStorage.clickcount + " Saved Resturant ";
+
+// // Local Storage Favorities 
+// localStorage.setItem("chosenrest");
+// const restaurant = localStorage.getItem("chosenrest");
+//     console.log(restaurant)
