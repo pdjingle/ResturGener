@@ -122,10 +122,6 @@ button {
   margin-top: 10px;
   color: rgb(68, 68, 68);
 }
-  
-
-
-
 
 
 /* beginning of modal css */
@@ -145,7 +141,6 @@ margin: 50% auto;
 padding: 20px;
 border: 1px solid #888;
 width: 80%;
-
 }
 
 /* Modal close button */
@@ -174,12 +169,17 @@ width: 80%;
     display: flex;
     justify-content: flex-end;
     margin-right: -1rem;
+    margin-left: -1rem;
     margin-top: -1rem;
-    cursor: pointer;
     background-color: rgb(187, 133, 236);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
   }
+
+.modal_close-bar span {
+  margin-right: 10px;
+  cursor: pointer;
+}
 
 .modal_contents {
     background-color: antiquewhite;
@@ -196,4 +196,3 @@ width: 80%;
       color:rgb(68, 68, 68);
       transition: all .4s ease-in-out;
   }
-
