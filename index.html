@@ -93,7 +93,7 @@
                         </label>
                     </div>
 
-                    <input id="choose" type="submit" value="Choose My Restaurant" class="resBtn"></input>
+                    <input id="choose" type="submit" value="Choose My Restaurant" class="resBtn" style="background-color: rgb(187, 133, 236)"></input>
                 </form>
             </main>
 
@@ -106,34 +106,25 @@
 
         <!-- Modal HTML -->
         <!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
+            <div id="res-modal" class="modal modal_hidden">
+            <div class="modal_contents">
+                <div class="modal_close-bar">
+                    <span id="modal_close">X</span>
+                </div>
+                <div id="chosen-restaurant">
+                    <p>Do you want to save this restaurant as a favorite?</p>
+                    <button style="background-color: rgb(172, 224, 224)">Yes. Add as a favorite.</button>
 
-        <div id="myModal" class="modal">
-
-            <!-- modal content -->
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <p>PLACEHOLDER FOR TEXT IN MODAL</p>
-            </div>
-
-        </div>
-        <!-- <div class="modal">
-        <div class="modal_contents">
-            <div class="modal_close-bar">
-                <span>X</span>
-            </div>
-            <div id="chosen-restaurant">
-                <p>Do you want to save this restaurant as a favorite?</p>
-                <button>Yes. Add as a favorite.</button>
-
-                <p>Do you want this information texted to you?</p>
-                <form>
-                    <input type="telephone-number" placeholder="Your cell number">
-                    <button>Text me this Result</button>
-                </form>
+                    <p>Do you want this information texted to you?</p>
+                    <form>
+                        <input type="telephone-number" placeholder="Your cell number" style="padding: 0.5rem">
+                        <button style="background-color: rgb(187, 133, 236)">Text me this Result</button>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-    <div id="chosen-restaurant"></div> -->
+
+        <div id="chosen-restaurant"></div>
 
     </div>
 

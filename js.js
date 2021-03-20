@@ -4,7 +4,7 @@ $(document).ready(function () {
     // get the modal
     // var modal = document.getElementById("myModal");
     // get button that opens modal
-        //  var btn = document.getElementById("choose");
+    //  var btn = document.getElementById("choose");
     // get the span elemen t that closes modal
     // var span = document.getElementsByClassName ("close") [0];
 
@@ -16,6 +16,7 @@ $(document).ready(function () {
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function (i) {
         i.preventDefault();
+        $("#res-modal").removeClass("modal_hidden");
         rOptions = [];
         var location = $("#location").val();
         getLatLon(location);
@@ -66,29 +67,8 @@ $(document).ready(function () {
                 let randomNum = Math.floor(Math.random() * rOptions.length);
                 let chosenRest = rOptions[randomNum];
                 console.log(chosenRest);
-
-                // Modal JavaScript code below
-                // const toggleModal = () => {
-                    // modal stays hidden until otherwise informed
-                    // document.querySelector('.modal').classList.toggle('modal--hidden');
-                    ;
-                    // modal is revealed based on a click
-                    // document.querySelector("#show-modal").addEventListener('click', toggleModal);
-
-                    // modal is revealed based upon clicking of the "choose" button
-                    // document.querySelector("#choose").addEventListener('submit', (event) => {
-                    //     event.preventDefault();
-                    //     toggleModal();
-                    // };
-
-                    // modal may be closed by user by clicking the "X" in 
-                    // the upper-right corner of the modal
-                    // document.querySelector(".modal_close-bar span").addEventListener('click', toggleModal);
-
-                    // document.querySelector('#submit').addEventListener('click', toggleModal);
-                }
             }
-        )
+        })
     }
 
     function makeResultsArr(resultsArr) {
@@ -112,43 +92,56 @@ $(document).ready(function () {
                                 rOptions.push(r);
                             }
                         })
-                        if(rOptions.indexOf(r) === -1) {
+                        if (rOptions.indexOf(r) === -1) {
                             rOptions.push(r);
                         }
                     }
                 }
             }
         })
-        console.log(rOptions);
     }
+
+    // modal may be closed by user by clicking the "X" in 
+    // the upper-right corner of the modal
+    $("#modal_close").on('click', function (i) {
+        $("#res-modal").addClass("modal_hidden");
+    })
+
+
+
 })
 
+
+
+
 // Resturant Array
-$(document).ready(function() {
+$(document).ready(function () {
     var favorites = [];
     var counter = 0;
 
-    $('.favorite').click(function() {
+    $('.favorite').click(function () {
         ++counter;
         favorites.push("\"" + $(this).text() + " " + counter + "\"");
     });
 
-    $('#reveal').click(function() {
-       alert(favorites); 
+    $('#reveal').click(function () {
+        alert(favorites);
     });
 });
 
+
+
 // Local Storage: Storage 
-localStorage.makeResultsArr = favorites
+// localStorage.makeResultsArr = favorites
 
-// Retreieve 
-document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+// // Retreieve 
+// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
 
-// Or different resturants 
-if (sessionStorage.clickcount) {
-    sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-  } else {
-    sessionStorage.clickcount = 1;
-  }
-//   document.getElementById("result").innerHTML = "You have saves this resturant " +
-  sessionStorage.clickcount + " Saved Resturant ";
+// // Or different resturants 
+// if (sessionStorage.clickcount) {
+//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+//   } else {
+//     sessionStorage.clickcount = 1;
+//   }
+// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+//   sessionStorage.clickcount + " Saved Resturant ";
