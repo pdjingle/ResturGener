@@ -1,5 +1,16 @@
 # Project 1
 
+## To-Do 3/19/21 (in order of importance)
+* get local storage to work
+* add modal for errors, and delete alerts.
+* make presentation
+* make readMe
+* fix modal css format (particularly the closing bar)
+* cors before every session
+    * can we fix this? Not a priority, but we could make a modal with the link for users to activate the cors permission
+
+
+
 ## Application Requirements
 
 Your project should fulfill the following requirements:

@@ -1,17 +1,6 @@
 $(document).ready(function () {
     var GOOGLE_API_KEY = "AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw";
     var rOptions = [];
-    // get the modal
-    // var modal = document.getElementById("myModal");
-    // get button that opens modal
-        //  var btn = document.getElementById("choose");
-    // get the span elemen t that closes modal
-    // var span = document.getElementsByClassName ("close") [0];
-
-    // when user clicks on choose button, open the modal
-    // btn.onclick = function() {
-    //     modal.style.display = "block";
-    // }
 
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function (i) {
@@ -28,6 +17,10 @@ $(document).ready(function () {
             url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=${location}&key=${GOOGLE_API_KEY}`,
             datatype: "json",
 
+            // NEED TO GET THIS TO WORK
+            error: function(jqXHR, textStatus, errorThrown) {
+                $("#error-modal").removeClass("hidden");
+            },
             success: function (data) {
                 // to check the location is valid
                 if (data["results"][0] === undefined) {
@@ -65,30 +58,9 @@ $(document).ready(function () {
                 // chooses a random restaurant from the user-specified results
                 let randomNum = Math.floor(Math.random() * rOptions.length);
                 let chosenRest = rOptions[randomNum];
-                console.log(chosenRest);
-
-                // Modal JavaScript code below
-                // const toggleModal = () => {
-                    // modal stays hidden until otherwise informed
-                    // document.querySelector('.modal').classList.toggle('modal--hidden');
-                    ;
-                    // modal is revealed based on a click
-                    // document.querySelector("#show-modal").addEventListener('click', toggleModal);
-
-                    // modal is revealed based upon clicking of the "choose" button
-                    // document.querySelector("#choose").addEventListener('submit', (event) => {
-                    //     event.preventDefault();
-                    //     toggleModal();
-                    // };
-
-                    // modal may be closed by user by clicking the "X" in 
-                    // the upper-right corner of the modal
-                    // document.querySelector(".modal_close-bar span").addEventListener('click', toggleModal);
-
-                    // document.querySelector('#submit').addEventListener('click', toggleModal);
-                }
+                modalDisplay(chosenRest);
             }
-        )
+        })
     }
 
     function makeResultsArr(resultsArr) {
@@ -107,36 +79,105 @@ $(document).ready(function () {
 
                         // toggle option
                         let barOpt = $("#bar").is(':checked');
-                        r.types.forEach(function (t) {
-                            if (barOpt && t === "bar") {
-                                rOptions.push(r);
-                            }
-                        })
-                        if(rOptions.indexOf(r) === -1) {
+                        if (barOpt) {
+                            r.types.forEach(function (t) {
+                                if (barOpt && t === "bar") {
+                                    rOptions.push(r);
+                                }
+                            })
+                        }
+                        else {
                             rOptions.push(r);
                         }
                     }
                 }
             }
-        })
+        }) 
         console.log(rOptions);
     }
+
+    // gets the different data from the API to display on the modal
+    function modalDisplay(chosenRest) {
+        let resDisplay = $("#chosen-restaurant");
+                let resName = $("#res-name").text(chosenRest.name);
+                let resIcon = $("#res-icon").attr("src", chosenRest.icon);
+                let resAddress = $("#address").text(chosenRest.vicinity);
+                let resRate = $("#res-rate").text("Rating: " + chosenRest.rating);
+                
+                resDisplay.append(resIcon);
+                resDisplay.append("<br>");
+                resDisplay.append(resAddress);
+                resDisplay.append(resRate);
+
+                $("#res-modal").removeClass("modal_hidden");
+    }
+
+    // modal may be closed by user by clicking the "X" in the upper-right corner of the modal
+    $("#modal_close").on('click', function (i) {
+        $("#res-modal").addClass("modal_hidden");
+    })
+
+
+
 })
 
+
+
+
 // Resturant Array
-$(document).ready(function() {
+$(document).ready(function () {
     var favorites = [];
     var counter = 0;
 
-    $('.favorite').click(function() {
+    $('.favorite').click(function () {
         ++counter;
         favorites.push("\"" + $(this).text() + " " + counter + "\"");
     });
 
-    $('#reveal').click(function() {
-       alert(favorites); 
+    $('#reveal').click(function () {
+        alert(favorites);
     });
 });
+
+
+
+// Local Storage: Storage 
+<<<<<<< HEAD
+localStorage.setItem('name');
+
+// saves and returns the value ;
+let favorite = localStorage.getItem('name');
+
+
+
+
+// Retreieve 
+document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+// Or different resturants 
+if (sessionStorage.clickcount) {
+    sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+  } else {
+    sessionStorage.clickcount = 1;
+  }
+//   document.getElementById("result").innerHTML = "You have saves this resturant " +
+  sessionStorage.clickcount + " Saved Resturant ";
+=======
+// localStorage.makeResultsArr = favorites
+
+// // Retreieve 
+// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+// // Or different resturants 
+// if (sessionStorage.clickcount) {
+//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+//   } else {
+//     sessionStorage.clickcount = 1;
+//   }
+// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+//   sessionStorage.clickcount + " Saved Resturant ";
+>>>>>>> 2f6d19c45f41856b66c9c26679a3ad39a3fda86c
+
 
 // Local Storage: Storage 
 localStorage.setItem('name');
