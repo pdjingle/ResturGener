@@ -2,28 +2,44 @@ $(document).ready(function () {
     var GOOGLE_API_KEY = "AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw";
     var rOptions = [];
     var prevArr = JSON.parse(localStorage.getItem("res")) || []; // array of searched cities
+    var faveArr = JSON.parse(localStorage.getItem("fav")) || [];
 
-// creates the button list of the last 10 searched cities
-function createPrevMenu() {
-    // console.log(prevArr);
-    // console.log(localStorage.getItem("res"));
+    // BUGGY FAVES
+    // localStorage.removeItem("fav")
 
-    let prevList = $("#prev-list").text("");
-    if (prevArr.length > 0) {
-        for (var i = 0; i < prevArr.length; i++) {
-            var prevRes = prevArr[i];
-            var resBtn = $("<button>").css("text-transform", "capitalize").val(prevRes.place_id).text(prevRes.name).addClass("resBtn").attr("type", "button");
-            prevList.prepend(resBtn);
-            resBtn.click(resBtnFunc);
+
+    // creates the button list of the last 10 searched cities
+    function createPrevMenu() {
+        let prevList = $("#prev-list").text("");
+        if (prevArr.length > 0) {
+            for (var i = 0; i < prevArr.length; i++) {
+                var prevRes = prevArr[i];
+                var resBtn = $("<button>").val(prevRes.place_id).text(prevRes.name).attr("type", "button");
+                prevList.prepend(resBtn);
+                resBtn.click(resBtnFunc);
+            }
         }
     }
-}
 
-// list of the last 10 searched locations
-createPrevMenu();
+    // creates the button list of the favorited restaurants
+    function createFaveMenu() {
+        let faveList = $("#fave-list").text("");
+        console.log(faveArr);
+        if (faveArr.length > 0) {
+            for (var i = 0; i < prevArr.length; i++) {
+                var faveRes = faveArr[i];
+                var resBtn = $("<button>").val(faveRes.place_id).text(faveRes.name).attr("type", "button");
+                faveList.prepend(resBtn);
+                resBtn.click(resBtnFunc);
+            }
+        }
+    }
 
+    // list of the last 10 searched locations
+    createPrevMenu();
 
-
+    // list of all favorited restaurants
+    createFaveMenu();
 
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function (i) {
@@ -41,7 +57,7 @@ createPrevMenu();
             datatype: "json",
 
             // NEED TO GET THIS TO WORK
-            error: function(jqXHR, textStatus, errorThrown) {
+            error: function (jqXHR, textStatus, errorThrown) {
                 $("#error-modal").removeClass("hidden");
             },
             success: function (data) {
@@ -73,7 +89,7 @@ createPrevMenu();
             type: "GET",
             url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=${radius}&type=restaurant&key=${GOOGLE_API_KEY}`,
             datatype: "json",
-            success: function (data) {                
+            success: function (data) {
                 let resultsArr = data.results;
                 makeResultsArr(resultsArr);
 
@@ -82,19 +98,28 @@ createPrevMenu();
                 let chosenRest = rOptions[randomNum];
                 modalDisplay(chosenRest);
 
-                // let resName = chosenRest.name;
-
                 // adds to the previous searches bar. Only displays the previous 10 searches.
-                if(prevArr.indexOf(chosenRest) === -1) {
+                if (prevArr.indexOf(chosenRest) === -1) {
                     prevArr.push(chosenRest);
-                    if (prevArr.length > 10) { // makes sure the list of previously searched city is limited to 10
+                    if (prevArr.length > 10) { // makes sure the list of previously searched restaurants is limited to 10
                         prevArr.shift();
                     }
-                    // console.log(prevArr);
                     localStorage.setItem("res", JSON.stringify(prevArr));
-                    // console.log(localStorage.getItem("res"));
                     createPrevMenu();
                 }
+
+                // adds to the favorites menu
+                $("#fave-btn").on('click', function (i) {
+                    if (faveArr.indexOf(chosenRest) === -1) {
+                        faveArr.push(chosenRest);
+                        if (faveArr.length > 10) { // makes sure the list of favorited restaurants is limited to 10
+                            faveArr.shift();
+                        }
+        console.log(faveArr)
+                        localStorage.setItem("fav", JSON.stringify(faveArr));
+                        createFaveMenu();
+                    }
+                })
             }
         })
     }
@@ -133,6 +158,7 @@ createPrevMenu();
 
     // gets the different data from the API to display on the modal
     function modalDisplay(chosenRest) {
+console.log(chosenRest);
         $("#res-name").text(chosenRest.name);
         $("#res-icon").attr("src", chosenRest.icon);
         $("#address").text(chosenRest.vicinity);
@@ -146,6 +172,8 @@ createPrevMenu();
         $("#res-modal").addClass("modal_hidden");
     })
 
+  
+
     // When one of the restaurant buttons is pressed, it displays the modal for the restaurant
     function resBtnFunc(event) {
         event.preventDefault();
@@ -154,172 +182,9 @@ createPrevMenu();
             type: "GET",
             url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=${GOOGLE_API_KEY}`,
             datatype: "json",
-            success: function (data) {     
+            success: function (data) {
                 modalDisplay(data.result);
             }
         })
     }
 })
-
-// // Saved Past Searches 
-// function chosenrest(resturant);
-// var recentSeraches = chosenRest();
-// localStorage.getItem("resentSearches");
-// var recentSearches
-// });
-
-// function displayRecentSearch();
-// var recentSeraches = chosenRest();
-// localStorage.getItem("prev");
-// var recentSearches
-// });
-
-// var pastSearches = [];
-
-// if(localStorage["chosenRest"]) {
-//      pastSearches = JSON.parse(localStorage["ChosenRest"]);
-// }
-
-// if(pastSearches.indexOf(search) == -1) {
-//     pastSearches.unshift(search);
-//     if(pastSearches.length > 5) { 
-//        pastSearches.pop();
-//     }
-//     localStorage["ChosenRest"] = JSON.stringify(ChosenRest);
-// }
-
-// function drawPastSearches() {
-//     if(pastSearches.length) {
-//         var html = pastSearchesTemplate({search:pastSearches});
-//         $("#pastSearches").html(html);
-//     }
-// }
-
-// $(document).on("click", ".pastSearchLink", function(e) {
-//     e.preventDefault();
-//     var search = $(this).text();
-//     doSearch(search);
-// });
-
-// // Resturant Array
-// $(document).ready(function () {
-//     var favorites = [];
-//     var counter = 0;
-
-//     $('.favorite').click(function () {
-//         ++counter;
-//         favorites.push("\"" + $(this).text() + " " + counter + "\"");
-//     });
-
-//     $('#reveal').click(function () {
-//         alert(favorites);
-//     });
-
-
-// // // Local Storage Favorities 
-
-// // localStorage.setItem("chosenrest");
-
-// // const restaurant = localStorage.getItem("chosenrest");
-// //     console.log(restaurant);
-	
-
-// // Local Storage: Storage 
-// localStorage.setItem('name');
-
-// // saves and returns the value ;
-// let favorite = localStorage.getItem('name');
-
-
-
-
-// // Retreieve 
-// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
-
-// // Or different resturants 
-// if (sessionStorage.clickcount) {
-//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-//   } else {
-//     sessionStorage.clickcount = 1;
-//   }
-// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
-//   sessionStorage.clickcount + " Saved Resturant ";
-// // localStorage.makeResultsArr = favorites
-
-// // // Retreieve 
-// // document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
-
-// // // // Local Storage: Storage 
-// // localStorage.makeResultsArr = favorites
-
-// // // Retreieve 
-// // document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
-
-// // // Or different resturants 
-// // if (sessionStorage.clickcount) {
-// //     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-// //   } else {
-// //     sessionStorage.clickcount = 1;
-// //   }
-// // //   document.getElementById("result").innerHTML = "You have saves this resturant " +
-// //   sessionStorage.clickcount + " Saved Resturant ";
-
-
-// // // Or different resturants 
-// // if (sessionStorage.clickcount) {
-// //     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-// //   } else {
-// //     sessionStorage.clickcount = 1;
-// //   }
-// // //   document.getElementById("result").innerHTML = "You have saves this resturant " +
-// //   sessionStorage.clickcount + " Saved Resturant ";
-
-
-
-// // Local Storage: Storage 
-// localStorage.setItem('name');
-
-// // saves and returns the value ;
-// let favorite = localStorage.getItem('name');
-
-  
-// // // Local Storage: Storage 
-// // localStorage.setItem('name');
-
-// // // saves and returns the value ;
-// // let favorite = localStorage.getItem('name');
-
-
-
-
-
-// // Retreieve 
-// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
-
-
-// // Retreieve 
-// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
-
-// // // Or different resturants 
-// // if (sessionStorage.clickcount) {
-// //     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-// //   } else {
-// //     sessionStorage.clickcount = 1;
-// //   }
-// // //   document.getElementById("result").innerHTML = "You have saves this resturant " +
-// //   sessionStorage.clickcount + " Saved Resturant ";
-
-// // Or different resturants 
-// if (sessionStorage.clickcount) {
-//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-//   } else {
-//     sessionStorage.clickcount = 1;
-//   }
-// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
-//   sessionStorage.clickcount + " Saved Resturant ";
-
-// // Local Storage Favorities 
-// localStorage.setItem("chosenrest");
-// const restaurant = localStorage.getItem("chosenrest");
-//     console.log(restaurant)
-
