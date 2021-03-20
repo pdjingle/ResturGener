@@ -183,19 +183,24 @@ width: 80%;
     margin-right: -1rem;
     margin-top: -1rem;
     cursor: pointer;
+    background-color: rgb(187, 133, 236);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
   }
 
 .modal_contents {
     background-color: antiquewhite;
     padding: auto;
+    padding: 15px;
+    border-radius: 15px;
   }
 
   button {
-      width: 100%;
+      width: 50%;
+      margin: 10px;
       padding: .5rem;
-      background-color: azure;
       border: none;
-      color:cadetblue;
+      color:rgb(68, 68, 68);
       transition: all .4s ease-in-out;
   }
 
