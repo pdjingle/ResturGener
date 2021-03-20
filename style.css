@@ -38,6 +38,7 @@ footer  {
 
 footer {
   font-size: small;
+  
 }
 
 aside,
@@ -188,7 +189,7 @@ width: 80%;
     border-radius: 15px;
   }
 
-  button {
+button {
       width: 50%;
       margin: 10px;
       padding: .5rem;
