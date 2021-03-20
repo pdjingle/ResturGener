@@ -1,22 +1,10 @@
 $(document).ready(function () {
     var GOOGLE_API_KEY = "AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw";
     var rOptions = [];
-    // get the modal
-    // var modal = document.getElementById("myModal");
-    // get button that opens modal
-    //  var btn = document.getElementById("choose");
-    // get the span elemen t that closes modal
-    // var span = document.getElementsByClassName ("close") [0];
-
-    // when user clicks on choose button, open the modal
-    // btn.onclick = function() {
-    //     modal.style.display = "block";
-    // }
 
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function (i) {
         i.preventDefault();
-        $("#res-modal").removeClass("modal_hidden");
         rOptions = [];
         var location = $("#location").val();
         getLatLon(location);
@@ -29,6 +17,10 @@ $(document).ready(function () {
             url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=${location}&key=${GOOGLE_API_KEY}`,
             datatype: "json",
 
+            // NEED TO GET THIS TO WORK
+            error: function(jqXHR, textStatus, errorThrown) {
+                $("#error-modal").removeClass("hidden");
+            },
             success: function (data) {
                 // to check the location is valid
                 if (data["results"][0] === undefined) {
@@ -66,7 +58,7 @@ $(document).ready(function () {
                 // chooses a random restaurant from the user-specified results
                 let randomNum = Math.floor(Math.random() * rOptions.length);
                 let chosenRest = rOptions[randomNum];
-                console.log(chosenRest);
+                modalDisplay(chosenRest);
             }
         })
     }
@@ -101,8 +93,23 @@ $(document).ready(function () {
         })
     }
 
-    // modal may be closed by user by clicking the "X" in 
-    // the upper-right corner of the modal
+    // gets the different data from the API to display on the modal
+    function modalDisplay(chosenRest) {
+        let resDisplay = $("#chosen-restaurant");
+                let resName = $("#res-name").text(chosenRest.name);
+                let resIcon = $("#res-icon").attr("src", chosenRest.icon);
+                let resAddress = $("#address").text(chosenRest.vicinity);
+                let resRate = $("#res-rate").text("Rating: " + chosenRest.rating);
+                
+                resDisplay.append(resIcon);
+                resDisplay.append("<br>");
+                resDisplay.append(resAddress);
+                resDisplay.append(resRate);
+
+                $("#res-modal").removeClass("modal_hidden");
+    }
+
+    // modal may be closed by user by clicking the "X" in the upper-right corner of the modal
     $("#modal_close").on('click', function (i) {
         $("#res-modal").addClass("modal_hidden");
     })

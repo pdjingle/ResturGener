@@ -93,7 +93,8 @@
                         </label>
                     </div>
 
-                    <input id="choose" type="submit" value="Choose My Restaurant" class="resBtn" style="background-color: rgb(187, 133, 236)"></input>
+                    <input id="choose" type="submit" value="Choose My Restaurant" class="resBtn"
+                        style="background-color: rgb(187, 133, 236)"></input>
                 </form>
             </main>
 
@@ -106,25 +107,40 @@
 
         <!-- Modal HTML -->
         <!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
-            <div id="res-modal" class="modal modal_hidden">
+        <div id="res-modal" class="modal modal_hidden">
             <div class="modal_contents">
                 <div class="modal_close-bar">
                     <span id="modal_close">X</span>
                 </div>
-                <div id="chosen-restaurant">
-                    <p>Do you want to save this restaurant as a favorite?</p>
-                    <button style="background-color: rgb(172, 224, 224)">Yes. Add as a favorite.</button>
+                <!-- The restaurant info from the API -->
+                <section id="chosen-restaurant" style="margin: 10px">
+                    <h3 id="res-name"></h3>
+                    <img alt="image icon" id="res-icon">
+                    <p id="address"></p>
+                    <p id="res-rate"></p>
+                </section>
+                <p>Do you want to save this restaurant as a favorite?</p>
+                <button style="background-color: rgb(172, 224, 224)">Yes. Add as a favorite.</button>
 
-                    <p>Do you want this information texted to you?</p>
-                    <form>
-                        <input type="telephone-number" placeholder="Your cell number" style="padding: 0.5rem">
-                        <button style="background-color: rgb(187, 133, 236)">Text me this Result</button>
-                    </form>
-                </div>
+                <p>Do you want this information texted to you?</p>
+                <form>
+                    <input type="telephone-number" placeholder="Your cell number" style="padding: 0.5rem">
+                    <button style="background-color: rgb(187, 133, 236)">Text me this Result</button>
+                </form>
             </div>
         </div>
 
-        <div id="chosen-restaurant"></div>
+        <!-- Error Modal -->
+        <div id="error-modal" class="modal modal_hidden">
+            <div class="modal_contents">
+                <div class="modal_close-bar">
+                    <span id="modal_close">X</span>
+                </div>
+                <p>Fill in all the criteria: Location, radius, rating, and price range.</p>
+                <button style="background-color: rgb(172, 224, 224)">Yes. Add as a favorite.</button>
+            </div>
+        </div>
+
 
     </div>
 
