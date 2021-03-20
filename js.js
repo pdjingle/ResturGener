@@ -116,66 +116,115 @@ $(document).ready(function () {
     $("#modal_close").on('click', function (i) {
         $("#res-modal").addClass("modal_hidden");
     })
-
-
-
 })
 
+// Saved Past Searches 
+function displayRecentSearch();
+var recentSeraches = chosenRest();
+localStorage.getItem("resentSearches");
+var recentSearches
+}); */
 
 
 
-// Resturant Array
-$(document).ready(function () {
-    var favorites = [];
-    var counter = 0;
-
-    $('.favorite').click(function () {
-        ++counter;
-        favorites.push("\"" + $(this).text() + " " + counter + "\"");
-    });
-
-    $('#reveal').click(function () {
-        alert(favorites);
-    });
-});
 
 
 
-// Local Storage: Storage 
-localStorage.makeResultsArr = favorites
 
-// Retreieve 
-document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
 
-// Or different resturants 
-if (sessionStorage.clickcount) {
-    sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-  } else {
-    sessionStorage.clickcount = 1;
-  }
-//   document.getElementById("result").innerHTML = "You have saves this resturant " +
-  sessionStorage.clickcount + " Saved Resturant ";
+
+
+
+
+
+
+
+// var pastSearches = [];
+
+// if(localStorage["chosenRest"]) {
+//      pastSearches = JSON.parse(localStorage["ChosenRest"]);
+// }
+
+// if(pastSearches.indexOf(search) == -1) {
+//     pastSearches.unshift(search);
+//     if(pastSearches.length > 5) { 
+//        pastSearches.pop();
+//     }
+//     localStorage["ChosenRest"] = JSON.stringify(ChosenRest);
+// }
+
+// function drawPastSearches() {
+//     if(pastSearches.length) {
+//         var html = pastSearchesTemplate({search:pastSearches});
+//         $("#pastSearches").html(html);
+//     }
+// }
+
+// $(document).on("click", ".pastSearchLink", function(e) {
+//     e.preventDefault();
+//     var search = $(this).text();
+//     doSearch(search);
+// });
+
+// // Resturant Array
+// $(document).ready(function () {
+//     var favorites = [];
+//     var counter = 0;
+
+//     $('.favorite').click(function () {
+//         ++counter;
+//         favorites.push("\"" + $(this).text() + " " + counter + "\"");
+//     });
+
+//     $('#reveal').click(function () {
+//         alert(favorites);
+//     });
+
+
+// // Local Storage Favorities 
+
+// localStorage.setItem("chosenrest");
+
+// const restaurant = localStorage.getItem("chosenrest");
+//     console.log(restaurant);
+	
+
+
+// // // Local Storage: Storage 
+// localStorage.makeResultsArr = favorites
+
+// // Retreieve 
+// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+// // Or different resturants 
+// if (sessionStorage.clickcount) {
+//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+//   } else {
+//     sessionStorage.clickcount = 1;
+//   }
+// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+//   sessionStorage.clickcount + " Saved Resturant ";
 
 
 
   
-// Local Storage: Storage 
-localStorage.setItem('name');
+// // Local Storage: Storage 
+// localStorage.setItem('name');
 
-// saves and returns the value ;
-let favorite = localStorage.getItem('name');
-
-
+// // saves and returns the value ;
+// let favorite = localStorage.getItem('name');
 
 
-// Retreieve 
-document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
 
-// Or different resturants 
-if (sessionStorage.clickcount) {
-    sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-  } else {
-    sessionStorage.clickcount = 1;
-  }
-//   document.getElementById("result").innerHTML = "You have saves this resturant " +
-  sessionStorage.clickcount + " Saved Resturant ";
+
+// // Retreieve 
+// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+// // Or different resturants 
+// if (sessionStorage.clickcount) {
+//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+//   } else {
+//     sessionStorage.clickcount = 1;
+//   }
+// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+//   sessionStorage.clickcount + " Saved Resturant ";
