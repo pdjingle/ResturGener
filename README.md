@@ -1,10 +1,11 @@
 # Project 1: Random Restaurant Generator
 
 ## To-Do 3/20/21 (in order of importance)
-* get local storage to work
+* get local storage to work for favorites
 * add modal for errors, and delete alerts.
 * make presentation
 * make readMe
+    * type intro
 * cors before every session
     * we could make a modal with the link for users to activate the cors permission
 * Andrew: ReadMe: explain what you did for the Modal functionality in "Tasks Completed"
@@ -43,9 +44,14 @@ ______________________________________
         * Using a random number function from 0-'the array length', a random restaurant is chosen from the array.
         * The chosen restaurant's information is set to verious elements in the modal to be displayed.
         * The restaurant is stored in an array in local storage for previously searched restaurants.
-* The modal 
+* The modal [ANDREW: EXPLAIN WHAT YOU DID FOR THE MODAL]
     * When the blue button is clicked, the information is saved in local storage for the "Favorite Restaurants" array. This restaurant is also displayed on the "Favorite Restaurants" section.
     * If the program does not work, a modal indicating what the problem is will pop up.
+* For local storage:
+    * Created an array for the previous searches, put each chosen restaurant object into the array, saved the array to local storage.
+        * Did the same thing for "favorites," but favorites is only triggered when the favorites button is pressed.
+    * Displayed each search by creating a button with the value of the place_id and the text of the name.
+        * Used an API that uses the place_id from the object to get the restaurant object again. Passed the restaurant object into the modal function to display the modal for the desired restaurant button.
 * To bypass the CORS issue, added https://cors-anywhere.herokuapp.com/ in front of each API URL, and users need to click on this link to ask for permission.
 
 
@@ -54,6 +60,11 @@ ______________________________________
 * The footer is not on the bottom of the screen.
 * On mobile, when the local storage columns get too long, the modal only appears on the top rather than on the main display
 * On desktop, when the local storage columns get too long, the modal is stretched, leaving a large gap between the name and the icon.
+* The favorite restaurants gets buggy
+    * When clicking on the "Favorite" button more than once, it causes an error in the local storage.
+    * When clicking on a Favortie Restaurant after searching up a new restaurant, and then clicking on Favorite for the Favorite Restaurant, then the recently searched one is added. Refreshing the page prevents this from occurring.
+        * ie. Having Starbucks in the favorites. Searching Pizza Hut. Clicking on Starbucks in the Favorite's section, clicking on "Favorites" button. This brings up "Pizza Hut" into the Favorites rather than informing the user that the restaurant is already there.
+    * When there's an error in the local storage from any of these situations, the modal cannot be closed.
 
 
 ## Future Ideas
@@ -65,9 +76,12 @@ ______________________________________
 * Display the restaurant website (if it has one) on the modal. Would need an API with that information.
     * Display images on the modal for the restaurant. Would also need an API with this information.
 * Make mobile more appealing for users: Larger spaces between drop-down menus, change font, make font bigger, get rid of the footer.
+* Allow users to remove or even rank their favorites
 
 
-## Website Images
+## Website Assets
+
+* Demo:
 
 * Empty Dashboard: 
 ![Empty Dash](./assets/empty-dash.png)
@@ -87,6 +101,7 @@ ______________________________________
 * Used APIs from Google: https://developers.google.com/apis-explorer
     * Location: https://developers.google.com/maps/documentation/geocoding/overview
     * Restaurants: https://developers.google.com/maps/documentation/places/web-service/search?hl=ru
+    * Restaurants in LocalStorage: https://developers.google.com/maps/documentation/places/web-service/place-id
 
 - - -
 © 2021 Restaurant Generator, (Karen Miller, Andrew Friedman, Jou Xiong) Northwestern Coding Bootcamp
