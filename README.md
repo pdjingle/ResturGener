@@ -1,13 +1,95 @@
-# Project 1
+# Project 1: Random Restaurant Generator
 
-## To-Do 3/19/21 (in order of importance)
+## To-Do 3/20/21 (in order of importance)
 * get local storage to work
 * add modal for errors, and delete alerts.
 * make presentation
 * make readMe
 * fix modal css format (particularly the closing bar)
 * cors before every session
-    * can we fix this? Not a priority, but we could make a modal with the link for users to activate the cors permission
+    * we could make a modal with the link for users to activate the cors permission
+* Andrew: ReadMe: explain what you did for the Modal functionality in "Tasks Completed"
+
+# 06 Server-Side APIs: Weather Dashboard
+
+* Functioning Website Link: https://pdjingle.github.io/ResturGener/?
+    * Displays an interactive weather dashboard.
+* GitHub Repository Link: https://github.com/pdjingle/ResturGener
+* Project Presentation Link: 
+
+## Functionalitty
+
+* User goes to this site: https://cors-anywhere.herokuapp.com/ and requests temporary access via the button.
+* When the user searches a location, a mile radius, the minimum rating, and the maximum price level, they are given a random restaurant that fits that criteria.
+    * User also has an optional "Bar" option if they want their restaurant to have a bar.
+    * A button is created for the randomly generated restaurant, which is appended to the "Previous Searches" section.
+* A modal appears with the restaurant name, icon, address, and current rating. Users have the option of adding the restaurant to their "Favorites" list. User also has the option fo text the information to them by putting in their phone number.
+* When the "Yes. Add as a favorite." button is clicked, a button for the restaurant appears in the Favorites section.
+* User can click the X in the top right corner of the modal to leave it and start a new search.
+* When viewing on smaller screens, the site becomes a long column rather than a row. See screenshot below.
+    * Clicking on any of the subheaders will take the user to those sections.
+
+
+## Tasks Completed
+
+* Created IDs in the HTML file to reference via JQuery in the JS file.
+* Created CSS styling using flexbox and Pure.css
+    * Used Pure.css to make the site layout on any UI
+* In the JS file, the left column calls on localStorage to display all the buttons of the past 10 randomly generated restaurants before the user starts a new search.
+    * Used an array of up to length 10 to make sure no repeat buttons are made
+* Created a button function that will search a restaurant fitting the user's criteria.
+    * The button function then calls on another function, which uses a Google Geocode API to get the latitude and longitude for that user-input location.
+    * Next, the latitude and longitude is passed into another function that has a second Google API for finding restaurants. The user-specified radius is also put in this API, which will return an array of 20 restaurants in the location and radius.
+        * The function then creates a new array to input restaurants that fit the rest of the user-specified criteria.
+        * Using a random number function from 0-'the array length', a random restaurant is chosen from the array.
+        * The chosen restaurant's information is set to verious elements in the modal to be displayed.
+        * The restaurant is stored in an array in local storage for previously searched restaurants.
+* The modal 
+    * When the blue button is clicked, the information is saved in local storage for the "Favorite Restaurants" array. This restaurant is also displayed on the "Favorite Restaurants" section.
+    * If the program does not work, a modal indicating what the problem is will pop up.
+* To bypass the CORS issue, added https://cors-anywhere.herokuapp.com/ in front of each API URL, and users need to click on this link to ask for permission.
+
+
+## Known Issues
+
+* The footer is not on the bottom of the screen.
+
+
+## Future Ideas
+
+* Add more options in the search criteria. All of these options will we optional and will not trigger a modal alert.
+    * cafes, stores, tourist, etc
+* To get more specific results pertaining to food type, use another API with that information.
+* Allow users to review the Restaurant Generator
+* Display the restaurant website (if it has one) on the modal. Would need an API with that information.
+    * Display images on the modal for the restaurant. Would also need an API with this information.
+
+
+## Website Images
+
+* Empty Dashboard: 
+![Empty Dash](./assets/empty-dash.png)
+
+* Search Results: 
+![Search Results](./assets/search-results.png)
+
+* Saved Favorite Restaurant: 
+![Saved Favorite Restaurant](./assets/fave-save.png)
+
+* Mobile UI Display (iPhone X): 
+![iPhone (mobile) display](./assets/mobile.png)
+
+
+## Sources (APIs)
+
+* Used APIs from Google: https://developers.google.com/apis-explorer
+    * Location: https://developers.google.com/maps/documentation/geocoding/overview
+    * Restaurants: https://developers.google.com/maps/documentation/places/web-service/search?hl=ru
+
+- - -
+© 2021 Restaurant Generator, (Karen Miller, Andrew Friedman, Jou Xiong) Northwestern Coding Bootcamp
+
+
 
 
 

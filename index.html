@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-min.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/base-min.css">
-
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.5/build/grids-responsive-min.css" />
     <link rel="stylesheet" type="text/css" href="./style.css" />
 </head>
@@ -38,6 +37,18 @@
             </div>
         </div>
 
+        <!-- Error Modal -->
+        <div id="error-modal" class="modal modal_hidden">
+            <div class="modal_contents">
+                <div class="modal_close-bar">
+                    <span id="modal_close">X</span>
+                </div>
+                <p>Fill in all the criteria: Location, radius, rating, and price range.</p>
+                <button style="background-color: rgb(172, 224, 224)">Yes. Add as a favorite.</button>
+            </div>
+        </div>
+
+    <!-- Main display content -->
     <header id="top">
         <h1>
             Save Your Date
@@ -60,8 +71,6 @@
 
     </header>
 
-    <!-- User inputs desired criteria for restaurant options -->
-
     <div>
         <div class="pure-g row">
             <!-- Left side bar of previously searched restaurants -->
@@ -81,8 +90,8 @@
                     </p>
                 </section>
 
+                <!-- User inputs desired criteria for restaurant options -->
                 <form class="res-form">
-                    <!-- TO-DO: ADD ARROW/LOCATION ICON -->
                     <div>
                         <input id="location" type="text" placeholder="Location" value="">
                         <select id="radius">
@@ -92,7 +101,6 @@
                             <option value="10">10 Miles</option>
                             <option value="15">15 Miles</option>
                         </select>
-                        <!-- TO-DO: ADD ICON -->
                     </div>
 
                     <select id="rating">
@@ -125,27 +133,12 @@
                 </form>
             </main>
 
-            <!-- Right side bar of favorited restaurants -->
+            <!-- Right side column of favorited restaurants -->
             <aside id="faves" class="box pure-u-1 pure-u-md-1-6">
                 <h3>Favorite Restaurants</h3>
                 <div id="fave-list"></div>
             </aside>
         </div>
-
-        
-
-        <!-- Error Modal -->
-        <div id="error-modal" class="modal modal_hidden">
-            <div class="modal_contents">
-                <div class="modal_close-bar">
-                    <span id="modal_close">X</span>
-                </div>
-                <p>Fill in all the criteria: Location, radius, rating, and price range.</p>
-                <button style="background-color: rgb(172, 224, 224)">Yes. Add as a favorite.</button>
-            </div>
-        </div>
-
-
     </div>
 
     <footer style="padding: 25px;">
