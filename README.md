@@ -5,12 +5,11 @@
 * add modal for errors, and delete alerts.
 * make presentation
 * make readMe
-* fix modal css format (particularly the closing bar)
 * cors before every session
     * we could make a modal with the link for users to activate the cors permission
 * Andrew: ReadMe: explain what you did for the Modal functionality in "Tasks Completed"
 
-# 06 Server-Side APIs: Weather Dashboard
+______________________________________
 
 * Functioning Website Link: https://pdjingle.github.io/ResturGener/?
     * Displays an interactive weather dashboard.
@@ -53,6 +52,8 @@
 ## Known Issues
 
 * The footer is not on the bottom of the screen.
+* On mobile, when the local storage columns get too long, the modal only appears on the top rather than on the main display
+* On desktop, when the local storage columns get too long, the modal is stretched, leaving a large gap between the name and the icon.
 
 
 ## Future Ideas
@@ -63,6 +64,7 @@
 * Allow users to review the Restaurant Generator
 * Display the restaurant website (if it has one) on the modal. Would need an API with that information.
     * Display images on the modal for the restaurant. Would also need an API with this information.
+* Make mobile more appealing for users: Larger spaces between drop-down menus, change font, make font bigger, get rid of the footer.
 
 
 ## Website Images

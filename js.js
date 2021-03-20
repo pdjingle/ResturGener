@@ -1,20 +1,18 @@
 $(document).ready(function () {
     var GOOGLE_API_KEY = "AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw";
     var rOptions = [];
-    var prevArr = localStorage.getItem("res") || []; // array of searched cities
-
-
+    var prevArr = JSON.parse(localStorage.getItem("res")) || []; // array of searched cities
 
 // creates the button list of the last 10 searched cities
-function createMenu() {
-    console.log(prevArr);
-    // console.log(localStorage);
+function createPrevMenu() {
+    // console.log(prevArr);
+    // console.log(localStorage.getItem("res"));
 
     let prevList = $("#prev-list").text("");
     if (prevArr.length > 0) {
         for (var i = 0; i < prevArr.length; i++) {
             var prevRes = prevArr[i];
-            var resBtn = $("<button>").css("text-transform", "capitalize").val(prevRes).text(prevRes).addClass("resBtn").attr("type", "button");
+            var resBtn = $("<button>").css("text-transform", "capitalize").val(prevRes.place_id).text(prevRes.name).addClass("resBtn").attr("type", "button");
             prevList.prepend(resBtn);
             resBtn.click(resBtnFunc);
         }
@@ -22,7 +20,7 @@ function createMenu() {
 }
 
 // list of the last 10 searched locations
-createMenu();
+createPrevMenu();
 
 
 
@@ -75,8 +73,7 @@ createMenu();
             type: "GET",
             url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=${radius}&type=restaurant&key=${GOOGLE_API_KEY}`,
             datatype: "json",
-            success: function (data) {
-                // MIGHT WANT TO MAKE THIS AND THE MODAL ITS OWN FUNCTION
+            success: function (data) {                
                 let resultsArr = data.results;
                 makeResultsArr(resultsArr);
 
@@ -85,6 +82,8 @@ createMenu();
                 let chosenRest = rOptions[randomNum];
                 modalDisplay(chosenRest);
 
+                // let resName = chosenRest.name;
+
                 // adds to the previous searches bar. Only displays the previous 10 searches.
                 if(prevArr.indexOf(chosenRest) === -1) {
                     prevArr.push(chosenRest);
@@ -92,9 +91,9 @@ createMenu();
                         prevArr.shift();
                     }
                     // console.log(prevArr);
-                    localStorage.setItem("res", prevArr);
-                    console.log(localStorage.getItem("res"));
-                    createMenu();
+                    localStorage.setItem("res", JSON.stringify(prevArr));
+                    // console.log(localStorage.getItem("res"));
+                    createPrevMenu();
                 }
             }
         })
@@ -134,19 +133,12 @@ createMenu();
 
     // gets the different data from the API to display on the modal
     function modalDisplay(chosenRest) {
-        console.log(chosenRest);
-        let resDisplay = $("#chosen-restaurant");
-                let resName = $("#res-name").text(chosenRest.name);
-                let resIcon = $("#res-icon").attr("src", chosenRest.icon);
-                let resAddress = $("#address").text(chosenRest.vicinity);
-                let resRate = $("#res-rate").text("Rating: " + chosenRest.rating);
-                
-                resDisplay.append(resIcon);
-                resDisplay.append("<br>");
-                resDisplay.append(resAddress);
-                resDisplay.append(resRate);
+        $("#res-name").text(chosenRest.name);
+        $("#res-icon").attr("src", chosenRest.icon);
+        $("#address").text(chosenRest.vicinity);
+        $("#res-rate").text("Rating: " + chosenRest.rating);
 
-                $("#res-modal").removeClass("modal_hidden");
+        $("#res-modal").removeClass("modal_hidden");
     }
 
     // modal may be closed by user by clicking the "X" in the upper-right corner of the modal
@@ -154,9 +146,18 @@ createMenu();
         $("#res-modal").addClass("modal_hidden");
     })
 
+    // When one of the restaurant buttons is pressed, it displays the modal for the restaurant
     function resBtnFunc(event) {
         event.preventDefault();
-        modalDisplay($(this).val());
+        let placeId = $(this).val();
+        $.ajax({
+            type: "GET",
+            url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?placeid=${placeId}&key=${GOOGLE_API_KEY}`,
+            datatype: "json",
+            success: function (data) {     
+                modalDisplay(data.result);
+            }
+        })
     }
 })
 
