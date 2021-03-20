@@ -118,110 +118,110 @@ $(document).ready(function () {
     })
 })
 
-// Saved Past Searches 
-function displayRecentSearch();
-var recentSeraches = chosenRest();
-localStorage.getItem("resentSearches");
-var recentSearches
-}); */
+// // Saved Past Searches 
+// function chosenrest(resturant);
+// var recentSeraches = chosenRest();
+// localStorage.getItem("resentSearches");
+// var recentSearches
+// }); */
 
-function displayRecentSearch();
-var recentSeraches = chosenRest();
-localStorage.getItem("prev");
-var recentSearches
-}); */
+// function displayRecentSearch();
+// var recentSeraches = chosenRest();
+// localStorage.getItem("prev");
+// var recentSearches
+// }); */
 
-var pastSearches = [];
+// var pastSearches = [];
 
-if(localStorage["chosenRest"]) {
-     pastSearches = JSON.parse(localStorage["ChosenRest"]);
-}
+// if(localStorage["chosenRest"]) {
+//      pastSearches = JSON.parse(localStorage["ChosenRest"]);
+// }
 
-if(pastSearches.indexOf(search) == -1) {
-    pastSearches.unshift(search);
-    if(pastSearches.length > 5) { 
-       pastSearches.pop();
-    }
-    localStorage["ChosenRest"] = JSON.stringify(ChosenRest);
-}
+// if(pastSearches.indexOf(search) == -1) {
+//     pastSearches.unshift(search);
+//     if(pastSearches.length > 5) { 
+//        pastSearches.pop();
+//     }
+//     localStorage["ChosenRest"] = JSON.stringify(ChosenRest);
+// }
 
-function drawPastSearches() {
-    if(pastSearches.length) {
-        var html = pastSearchesTemplate({search:pastSearches});
-        $("#pastSearches").html(html);
-    }
-}
+// function drawPastSearches() {
+//     if(pastSearches.length) {
+//         var html = pastSearchesTemplate({search:pastSearches});
+//         $("#pastSearches").html(html);
+//     }
+// }
 
-$(document).on("click", ".pastSearchLink", function(e) {
-    e.preventDefault();
-    var search = $(this).text();
-    doSearch(search);
-});
+// $(document).on("click", ".pastSearchLink", function(e) {
+//     e.preventDefault();
+//     var search = $(this).text();
+//     doSearch(search);
+// });
 
-// Resturant Array
-$(document).ready(function () {
-    var favorites = [];
-    var counter = 0;
+// // Resturant Array
+// $(document).ready(function () {
+//     var favorites = [];
+//     var counter = 0;
 
-    $('.favorite').click(function () {
-        ++counter;
-        favorites.push("\"" + $(this).text() + " " + counter + "\"");
-    });
+//     $('.favorite').click(function () {
+//         ++counter;
+//         favorites.push("\"" + $(this).text() + " " + counter + "\"");
+//     });
 
-    $('#reveal').click(function () {
-        alert(favorites);
-    });
+//     $('#reveal').click(function () {
+//         alert(favorites);
+//     });
 
 
-// // Local Storage Favorities 
+// // // Local Storage Favorities 
 
-// localStorage.setItem("chosenrest");
+// // localStorage.setItem("chosenrest");
 
-// const restaurant = localStorage.getItem("chosenrest");
-//     console.log(restaurant);
+// // const restaurant = localStorage.getItem("chosenrest");
+// //     console.log(restaurant);
 	
 
 
-// // // Local Storage: Storage 
-// localStorage.makeResultsArr = favorites
+// // // // Local Storage: Storage 
+// // localStorage.makeResultsArr = favorites
 
-// // Retreieve 
-// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+// // // Retreieve 
+// // document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
 
-// // Or different resturants 
-// if (sessionStorage.clickcount) {
-//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-//   } else {
-//     sessionStorage.clickcount = 1;
-//   }
-// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
-//   sessionStorage.clickcount + " Saved Resturant ";
+// // // Or different resturants 
+// // if (sessionStorage.clickcount) {
+// //     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+// //   } else {
+// //     sessionStorage.clickcount = 1;
+// //   }
+// // //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+// //   sessionStorage.clickcount + " Saved Resturant ";
 
 
 
   
-// // Local Storage: Storage 
-// localStorage.setItem('name');
+// // // Local Storage: Storage 
+// // localStorage.setItem('name');
 
-// // saves and returns the value ;
-// let favorite = localStorage.getItem('name');
-
-
+// // // saves and returns the value ;
+// // let favorite = localStorage.getItem('name');
 
 
-// // Retreieve 
-// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
 
-// // Or different resturants 
-// if (sessionStorage.clickcount) {
-//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-//   } else {
-//     sessionStorage.clickcount = 1;
-//   }
-// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
-//   sessionStorage.clickcount + " Saved Resturant ";
 
-// // Local Storage Favorities 
-// localStorage.setItem("chosenrest");
-// const restaurant = localStorage.getItem("chosenrest");
-//     console.log(restaurant)
+// // // Retreieve 
+// // document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
+
+// // // Or different resturants 
+// // if (sessionStorage.clickcount) {
+// //     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
+// //   } else {
+// //     sessionStorage.clickcount = 1;
+// //   }
+// // //   document.getElementById("result").innerHTML = "You have saves this resturant " +
+// //   sessionStorage.clickcount + " Saved Resturant ";
+
+// // // Local Storage Favorities 
+// // localStorage.setItem("chosenrest");
+// // const restaurant = localStorage.getItem("chosenrest");
+// //     console.log(restaurant)
