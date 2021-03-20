@@ -142,14 +142,7 @@ $(document).ready(function () {
 
 
 // Local Storage: Storage 
-<<<<<<< HEAD
-localStorage.setItem('name');
-
-// saves and returns the value ;
-let favorite = localStorage.getItem('name');
-
-
-
+localStorage.makeResultsArr = favorites
 
 // Retreieve 
 document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
@@ -162,23 +155,10 @@ if (sessionStorage.clickcount) {
   }
 //   document.getElementById("result").innerHTML = "You have saves this resturant " +
   sessionStorage.clickcount + " Saved Resturant ";
-=======
-// localStorage.makeResultsArr = favorites
-
-// // Retreieve 
-// document.getElementById("resturant").innerHTML = localStorage.makeresultsarr; 
-
-// // Or different resturants 
-// if (sessionStorage.clickcount) {
-//     sessionStorage.clickcount = Number(sessionStorage.clickcount) + 1;
-//   } else {
-//     sessionStorage.clickcount = 1;
-//   }
-// //   document.getElementById("result").innerHTML = "You have saves this resturant " +
-//   sessionStorage.clickcount + " Saved Resturant ";
->>>>>>> 2f6d19c45f41856b66c9c26679a3ad39a3fda86c
 
 
+
+  
 // Local Storage: Storage 
 localStorage.setItem('name');
 
