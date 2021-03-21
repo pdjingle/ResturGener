@@ -11,7 +11,7 @@
 
 ## Functionalitty
 
-* User goes to this site: https://cors-anywhere.herokuapp.com/ and requests temporary access via the button.
+* User goes to this site: https://cors-anywhere.herokuapp.com/corsdemo and requests temporary access via the button.
 * When the user searches a location, a mile radius, the minimum rating, and the maximum price level, they are given a random restaurant that fits that criteria.
     * User also has an optional "Bar" option if they want their restaurant to have a bar.
     * A button is created for the randomly generated restaurant, which is appended to the "Previous Searches" section. Previous searches is maxed out at 5 previously searched restaurants.
@@ -24,7 +24,7 @@
 
 ## Tasks Completed
 
-* To bypass the CORS issue, added https://cors-anywhere.herokuapp.com/ in front of each API URL, and users need to click on this link to ask for permission.
+* To bypass the CORS issue, added https://cors-anywhere.herokuapp.com/corsdemo in front of each API URL, and users need to click on this link to ask for permission.
 * Created IDs in the HTML file to reference via JQuery in the JS file.
     * The "History" subheading also allows the user to drop down to the Previous Searches section (when viewing on smaller screens)
 * Created CSS styling using flexbox and Pure.css
