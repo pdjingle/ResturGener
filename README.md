@@ -8,7 +8,7 @@
     * type intro
 * cors before every session
     * we could make a modal with the link for users to activate the cors permission
-   	 - https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=&key=AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw
+   	 - <<<<we need a link that actually accomplishes this for the various individual users.>>>>
 
 * Functioning Website Link: https://pdjingle.github.io/ResturGener/?
     * Displays an interactive weather dashboard.
