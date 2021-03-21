@@ -15,6 +15,10 @@
 * GitHub Repository Link: https://github.com/pdjingle/ResturGener
 * Project Presentation Link: 
 
+
+## Introduction to the Restaurant Generator
+	<<<< This will be more of a sales piece of the README, per Ron's suggestion. I'm writing a draft of it now and will insert shortly for both of your perousal, feedback, or editing. - ALF>>>
+
 ## Functionalitty
 
 * User goes to this site: https://cors-anywhere.herokuapp.com/ and requests temporary access via the button.
