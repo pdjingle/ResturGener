@@ -11,7 +11,7 @@
    	 - <<<<we need a link that actually accomplishes this for the various individual users.>>>>
 
 * Functioning Website Link: https://pdjingle.github.io/ResturGener/?
-    * Displays an interactive weather dashboard.
+    
 * GitHub Repository Link: https://github.com/pdjingle/ResturGener
 * Project Presentation Link: 
 
