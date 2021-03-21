@@ -2,7 +2,8 @@
 
 <!-- ## To-Do 3/20/21 (in order of importance) -->
 <!-- * get local storage to work for favorites
-* add modal for errors, and delete alerts.
+* add modal for errors
+    * get the X close to work
 * make presentation
 * make readMe
     * type intro
@@ -60,8 +61,8 @@
 
 ## Known Issues
 
-* The footer is not on the bottom of the desktop screen.
-* Text option does not work yet.
+* Footer on smaller screens isn't centered correctly.
+* Texting option does not work yet.
 
 
 ## Future Ideas
@@ -102,7 +103,6 @@
     * Restaurants: https://developers.google.com/maps/documentation/places/web-service/search?hl=ru
     * Restaurants in LocalStorage: https://developers.google.com/maps/documentation/places/web-service/place-id
 
-[Page link: https://pdjingle.github.io/ResturGener/](https://pdjingle.github.io/ResturGener/)
 - - -
  Copyright © 2021,  Restaurant Generator, (Karen Miller, Andrew Friedman, Jou Xiong) Northwestern Coding Bootcamp. All rights reserved.
 
