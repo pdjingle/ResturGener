@@ -82,6 +82,7 @@
     * Display images on the modal for the restaurant. Would also need an API with this information.
 * Make mobile more appealing for users: Larger spaces between drop-down menus, change font, make font bigger, get rid of the footer.
 * Allow users to remove or even rank their favorites
+* Allow users to submit testimonials of their dining experiences, their experiences using the app, and its effect on their evening/life.
 
 
 ## Website Assets
@@ -109,7 +110,7 @@
     * Restaurants in LocalStorage: https://developers.google.com/maps/documentation/places/web-service/place-id
 
 - - -
-© 2021 Restaurant Generator, (Karen Miller, Andrew Friedman, Jou Xiong) Northwestern Coding Bootcamp
+ Copyright © 2021,  Restaurant Generator, (Karen Miller, Andrew Friedman, Jou Xiong) Northwestern Coding Bootcamp. All rights reserved.
 
 
 
