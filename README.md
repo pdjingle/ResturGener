@@ -1,14 +1,14 @@
 # Project 1: Random Restaurant Generator
 
-## To-Do 3/20/21 (in order of importance)
-* get local storage to work for favorites
+<!-- ## To-Do 3/20/21 (in order of importance) -->
+<!-- * get local storage to work for favorites
 * add modal for errors, and delete alerts.
 * make presentation
 * make readMe
     * type intro
 * cors before every session
     * we could make a modal with the link for users to activate the cors permission
-   	 - <<<<we need a link that actually accomplishes this for the various individual users.>>>>
+   	 - <<<<we need a link that actually accomplishes this for the various individual users.>>>> -->
 
 * Functioning Website Link: https://pdjingle.github.io/ResturGener/?
     
@@ -17,7 +17,8 @@
 
 
 ## Introduction to "Save Your Date: The Restaurant Decision Maker"
-	<<<< This will be more of a sales piece of the README, per Ron's suggestion. I'm writing a draft of it now and will insert shortly for both of your perousal, feedback, or editing. - ALF>>>
+	Restaurant decision-maker now makes choosing a restaurant fun and easy. The user navigates to this location https://github.com/pdjingle/ResturGener and inputs the desired location and distance traveled. The user will also have an option to choose if the location will have an on-site bar. Then press the "choose my restaurant option". That will then pop up a notification within the browser of a location randomly generated via the program. If the user does not like that location they may choose to input the constraints again to generate another restaurant. 
+    
 
 ## Functionalitty
 
@@ -109,6 +110,7 @@
     * Restaurants: https://developers.google.com/maps/documentation/places/web-service/search?hl=ru
     * Restaurants in LocalStorage: https://developers.google.com/maps/documentation/places/web-service/place-id
 
+[Page link: https://pdjingle.github.io/ResturGener/](https://pdjingle.github.io/ResturGener/)
 - - -
  Copyright © 2021,  Restaurant Generator, (Karen Miller, Andrew Friedman, Jou Xiong) Northwestern Coding Bootcamp. All rights reserved.
 
@@ -116,7 +118,7 @@
 
 
 
-## Application Requirements
+<!-- ## Application Requirements
 
 Your project should fulfill the following requirements:
 
@@ -243,4 +245,4 @@ Each member is required to submit the following:
 * The URL of the GitHub repository.
 
 
-[Page link: https://pdjingle.github.io/ResturGener/](https://pdjingle.github.io/ResturGener/)
+ -->
