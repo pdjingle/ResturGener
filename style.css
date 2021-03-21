@@ -38,6 +38,9 @@ footer  {
 
 footer {
   font-size: small;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 
 aside,
@@ -221,4 +224,5 @@ button {
   
   @media only screen and (max-device-width: 380px) {
     .loader{margin-left: 20%;}
+    footer p {margin-left: -12%}
   }
