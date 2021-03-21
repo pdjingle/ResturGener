@@ -2,11 +2,8 @@ $(document).ready(function () {
     var GOOGLE_API_KEY = "AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw";
     var rOptions = [];
     var prevArr = JSON.parse(localStorage.getItem("res")) || []; // array of searched cities
-    var faveArr = JSON.parse(localStorage.getItem("fav")) || [];
 
-    // BUGGY FAVES
-    localStorage.removeItem("fav")
-
+    // localStorage.removeItem("res");
 
     // creates the button list of the last 10 searched cities
     function createPrevMenu() {
@@ -21,25 +18,8 @@ $(document).ready(function () {
         }
     }
 
-    // creates the button list of the favorited restaurants
-    function createFaveMenu() {
-        let faveList = $("#fave-list").text("");
-        console.log(faveArr);
-        if (faveArr.length > 0) {
-            for (var i = 0; i < prevArr.length; i++) {
-                var faveRes = faveArr[i];
-                var resBtn = $("<button>").val(faveRes.place_id).text(faveRes.name).attr("type", "button");
-                faveList.prepend(resBtn);
-                resBtn.click(resBtnFunc);
-            }
-        }
-    }
-
     // list of the last 10 searched locations
     createPrevMenu();
-
-    // list of all favorited restaurants
-    createFaveMenu();
 
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function (i) {
@@ -57,7 +37,7 @@ $(document).ready(function () {
             url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=${location}&key=${GOOGLE_API_KEY}`,
             datatype: "json",
 
-            // NEED TO GET THIS TO WORK
+// NEED TO GET THIS TO WORK
             error: function (jqXHR, textStatus, errorThrown) {
                 $("#error-modal").removeClass("hidden");
             },
@@ -103,25 +83,12 @@ $(document).ready(function () {
                 // adds to the previous searches bar. Only displays the previous 10 searches.
                 if (prevArr.indexOf(chosenRest) === -1) {
                     prevArr.push(chosenRest);
-                    if (prevArr.length > 10) { // makes sure the list of previously searched restaurants is limited to 10
+                    if (prevArr.length > 5) { // makes sure the list of previously searched restaurants is limited to 10
                         prevArr.shift();
                     }
                     localStorage.setItem("res", JSON.stringify(prevArr));
                     createPrevMenu();
                 }
-
-                // adds to the favorites menu
-                $("#fave-btn").on('click', function (i) {
-                    if (faveArr.indexOf(chosenRest) === -1) {
-                        faveArr.push(chosenRest);
-                        if (faveArr.length > 10) { // makes sure the list of favorited restaurants is limited to 10
-                            faveArr.shift();
-                        }
-        console.log(faveArr)
-                        localStorage.setItem("fav", JSON.stringify(faveArr));
-                        createFaveMenu();
-                    }
-                })
             }
         })
     }
