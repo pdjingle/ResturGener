@@ -5,7 +5,7 @@ $(document).ready(function () {
     var faveArr = JSON.parse(localStorage.getItem("fav")) || [];
 
     // BUGGY FAVES
-    // localStorage.removeItem("fav")
+    localStorage.removeItem("fav")
 
 
     // creates the button list of the last 10 searched cities
@@ -44,6 +44,7 @@ $(document).ready(function () {
     // user can input zip code, city, state, or their address
     $("#choose").on("click", function (i) {
         i.preventDefault();
+        $("#load").removeClass("hidden");
         rOptions = [];
         var location = $("#location").val();
         getLatLon(location);
@@ -96,6 +97,7 @@ $(document).ready(function () {
                 // chooses a random restaurant from the user-specified results
                 let randomNum = Math.floor(Math.random() * rOptions.length);
                 let chosenRest = rOptions[randomNum];
+                $("#load").addClass("hidden");
                 modalDisplay(chosenRest);
 
                 // adds to the previous searches bar. Only displays the previous 10 searches.
