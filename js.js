@@ -143,7 +143,11 @@ console.log(chosenRest);
         $("#res-modal").addClass("modal_hidden");
     })
 
-  
+    $("#clear").on('click', function (i) {
+        prevArr = [];
+        localStorage.removeItem("res");
+        createPrevMenu();
+    })
 
     // When one of the restaurant buttons is pressed, it displays the modal for the restaurant
     function resBtnFunc(event) {
