@@ -8,9 +8,7 @@
     * type intro
 * cors before every session
     * we could make a modal with the link for users to activate the cors permission
-* Andrew: ReadMe: explain what you did for the Modal functionality in "Tasks Completed"
-
-______________________________________
+   	 - https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=&key=AIzaSyCAweQh1DVUY2_SLuL76zGEN78p1ICyhiw
 
 * Functioning Website Link: https://pdjingle.github.io/ResturGener/?
     * Displays an interactive weather dashboard.
@@ -44,7 +42,10 @@ ______________________________________
         * Using a random number function from 0-'the array length', a random restaurant is chosen from the array.
         * The chosen restaurant's information is set to verious elements in the modal to be displayed.
         * The restaurant is stored in an array in local storage for previously searched restaurants.
-* The modal [ANDREW: EXPLAIN WHAT YOU DID FOR THE MODAL]
+* The Modal 
+        * <<< TEXT COMING FROM ME, ANDREW, Very shortly >>>
+
+
     * When the blue button is clicked, the information is saved in local storage for the "Favorite Restaurants" array. This restaurant is also displayed on the "Favorite Restaurants" section.
     * If the program does not work, a modal indicating what the problem is will pop up.
 * For local storage:
