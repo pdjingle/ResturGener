@@ -22,9 +22,9 @@
 * User goes to this site: https://cors-anywhere.herokuapp.com/ and requests temporary access via the button.
 * When the user searches a location, a mile radius, the minimum rating, and the maximum price level, they are given a random restaurant that fits that criteria.
     * User also has an optional "Bar" option if they want their restaurant to have a bar.
-    * A button is created for the randomly generated restaurant, which is appended to the "Previous Searches" section.
-* A modal appears with the restaurant name, icon, address, and current rating. Users have the option of adding the restaurant to their "Favorites" list. User also has the option fo text the information to them by putting in their phone number.
-* When the "Yes. Add as a favorite." button is clicked, a button for the restaurant appears in the Favorites section.
+    * A button is created for the randomly generated restaurant, which is appended to the "Previous Searches" section. Previous searches is maxed out at 5 previously searched restaurants.
+        * There is a clear button for users to clear the previous searches.
+* A modal appears with the restaurant name, icon, address, and current rating. User also has the option fo text the information to them by putting in their phone number.
 * User can click the X in the top right corner of the modal to leave it and start a new search.
 * When viewing on smaller screens, the site becomes a long column rather than a row. See screenshot below.
     * Clicking on any of the subheaders will take the user to those sections.
@@ -48,11 +48,10 @@
         * <<< TEXT COMING FROM ME, ANDREW, Very shortly >>>
 
 
-    * When the blue button is clicked, the information is saved in local storage for the "Favorite Restaurants" array. This restaurant is also displayed on the "Favorite Restaurants" section.
     * If the program does not work, a modal indicating what the problem is will pop up.
 * For local storage:
     * Created an array for the previous searches, put each chosen restaurant object into the array, saved the array to local storage.
-        * Did the same thing for "favorites," but favorites is only triggered when the favorites button is pressed.
+        * The clear button clears the array, and clears the local storage for the array.
     * Displayed each search by creating a button with the value of the place_id and the text of the name.
         * Used an API that uses the place_id from the object to get the restaurant object again. Passed the restaurant object into the modal function to display the modal for the desired restaurant button.
 * Added a loader from W3 Schools because some searches take a really long time. That way, the user will know that the app is running.
@@ -61,14 +60,8 @@
 
 ## Known Issues
 
-* The footer is not on the bottom of the screen.
-* On mobile, when the local storage columns get too long, the modal only appears on the top rather than on the main display
-* On desktop, when the local storage columns get too long, the modal is stretched, leaving a large gap between the name and the icon.
-* The favorite restaurants gets buggy
-    * When clicking on the "Favorite" button more than once, it causes an error in the local storage.
-    * When clicking on a Favortie Restaurant after searching up a new restaurant, and then clicking on Favorite for the Favorite Restaurant, then the recently searched one is added. Refreshing the page prevents this from occurring.
-        * ie. Having Starbucks in the favorites. Searching Pizza Hut. Clicking on Starbucks in the Favorite's section, clicking on "Favorites" button. This brings up "Pizza Hut" into the Favorites rather than informing the user that the restaurant is already there.
-    * When there's an error in the local storage from any of these situations, the modal cannot be closed.
+* The footer is not on the bottom of the desktop screen.
+* Text option does not work yet.
 
 
 ## Future Ideas
@@ -82,6 +75,7 @@
 * Make mobile more appealing for users: Larger spaces between drop-down menus, change font, make font bigger, get rid of the footer.
 * Allow users to remove or even rank their favorites
 * Allow users to submit testimonials of their dining experiences, their experiences using the app, and its effect on their evenings/lives.
+* Add a "Favorites" column for users to add their favorite restaurants.
 
 
 ## Website Assets
