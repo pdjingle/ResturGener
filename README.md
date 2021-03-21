@@ -8,6 +8,7 @@
     
 * GitHub Repository Link: https://github.com/pdjingle/ResturGener
     
+
 ## Functionalitty
 
 * User goes to this site: https://cors-anywhere.herokuapp.com/ and requests temporary access via the button.
@@ -25,11 +26,12 @@
 
 * To bypass the CORS issue, added https://cors-anywhere.herokuapp.com/ in front of each API URL, and users need to click on this link to ask for permission.
 * Created IDs in the HTML file to reference via JQuery in the JS file.
+    * The "History" subheading also allows the user to drop down to the Previous Searches section (when viewing on smaller screens)
 * Created CSS styling using flexbox and Pure.css
 * Used Pure.css to make the site layout on any UI
-* In the JS file, the left column calls on localStorage to display all the buttons of the past 10 randomly generated restaurants before the user starts a new search.
+* In the JS file, the rightcolumn calls on localStorage to display all the buttons of the past 5 randomly generated restaurants before the user starts a new search.
 
-* Used an array of up to length 10 to make sure no repeat buttons are made
+* Used an array of up to length 5 to make sure no repeat buttons are made
 * Created a button function that will search a restaurant fitting the user's criteria.
 * The button function then calls on another function, which uses a Google Geocode API to get the latitude and longitude for that user-input location.
 
@@ -47,10 +49,13 @@
         * Used an API that uses the place_id from the object to get the restaurant object again. Passed the restaurant object into the modal function to display the modal for the desired restaurant button.
     * Added a loader from W3 Schools because some searches take an extended period of time, and by incorporting that the user will know that the app is working 
 
+
 ## Known Issues
 
 * Footer on smaller screens isn't centered correctly.
 * Texting option does not work yet.
+* Occassionally, the API will not work. Take a break if this happens.
+
 
 ## Future Ideas
 
@@ -69,16 +74,26 @@
 
 ## Website Assets
 
-* Demo:
+* DesktopDemo:
+![Desktop Demo](./assets/RestaurantPicker-WebUsage.gif)
+
+* Mobile Demo:
+![Mobile Demo](./assets/MobileScreenVideoDemo.gif)
 
 * Empty Dashboard: 
-![Empty Dash](./assets/empty-dash.png)
+![Empty Dash](./assets/emptyDashboardScreenshot.png)
 
 * Search Results: 
-![Search Results](./assets/search-results.png)
+![Search Results](./assets/searchResultsScreenshot.png)
 
-* Saved Favorite Restaurant: 
-![Saved Favorite Restaurant](./assets/fave-save.png)
+* Search Results Text: 
+![Searched Results Text](./assets/searchResultsTextscreenshot.png)
+
+* Populated Data:
+![Populated Data](./assets/populatedDashboardScreenshot.png)
+
+* Final Dashboard:
+![Final Dashboard](./assets/finalDashboardPreviousSearchScreenshot.png)
 
 * Mobile UI Display (iPhone X): 
 ![iPhone (mobile) display](./assets/mobile.png)
