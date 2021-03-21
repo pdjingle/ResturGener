@@ -36,7 +36,7 @@ $(document).ready(function () {
             datatype: "json",
 
             // to check the location is valid
-            error: function(jqXHR, textStatus, errorThrown) {
+            error: function (jqXHR, textStatus, errorThrown) {
                 $("#error-modal").removeClass("modal_hidden");
                 $("#load").addClass("hidden");
             },
