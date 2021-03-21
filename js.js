@@ -159,6 +159,8 @@ $(document).ready(function () {
     // gets the different data from the API to display on the modal
     function modalDisplay(chosenRest) {
 console.log(chosenRest);
+// NOTE TO TEAM: I think the success of the main modal depended on the code that used to be here and what had been line 85/86
+// I just want to double check with what was done (which I know undoubtedly had a good purpose) so i can track it down to fix the modal
         $("#res-name").text(chosenRest.name);
         $("#res-icon").attr("src", chosenRest.icon);
         $("#address").text(chosenRest.vicinity);
