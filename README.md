@@ -75,28 +75,28 @@
 ## Website Assets
 
 * DesktopDemo:
-![Desktop Demo](./assets/RestaurantPicker-WebUsage.gif)
+![Desktop Demo](./Assets/RestaurantPicker-WebUsage.gif)
 
 * Mobile Demo:
-![Mobile Demo](./assets/MobileScreenVideoDemo.gif)
+![Mobile Demo](./Assets/MobileScreenVideoDemo.gif)
 
 * Empty Dashboard: 
-![Empty Dash](./assets/emptyDashboardScreenshot.png)
+![Empty Dash](./Assets/emptyDashboardScreenshot.png)
 
 * Search Results: 
-![Search Results](./assets/searchResultsScreenshot.png)
+![Search Results](./Assets/searchResultsScreenshot.png)
 
 * Search Results Text: 
-![Searched Results Text](./assets/searchResultsTextscreenshot.png)
+![Searched Results Text](./Assets/searchResultsTextscreenshot.png)
 
 * Populated Data:
-![Populated Data](./assets/populatedDashboardScreenshot.png)
+![Populated Data](./Assets/populatedDashboardScreenshot.png)
 
 * Final Dashboard:
-![Final Dashboard](./assets/finalDashboardPreviousSearchScreenshot.png)
+![Final Dashboard](./Assets/finalDashboardPreviousSearchScreenshot.png)
 
 * Mobile UI Display (iPhone X): 
-![iPhone (mobile) display](./assets/mobile.png)
+![iPhone (mobile) display](./Assets/mobile.png)
 
 
 ## Sources (APIs)
