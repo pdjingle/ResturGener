@@ -9,7 +9,7 @@
 * GitHub Repository Link: https://github.com/pdjingle/ResturGener
     
 
-## Functionalitty
+## Functionality
 
 * User goes to this site: https://cors-anywhere.herokuapp.com/corsdemo and requests temporary access via the button.
 * When the user searches a location, a mile radius, the minimum rating, and the maximum price level, they are given a random restaurant that fits that criteria.
@@ -79,24 +79,6 @@
 
 * Mobile Demo:
 ![Mobile Demo](./Assets/MobileScreenVideoDemo.gif)
-
-* Empty Dashboard: 
-![Empty Dash](./Assets/emptyDashboardScreenshot.png)
-
-* Search Results: 
-![Search Results](./Assets/searchResultsScreenshot.png)
-
-* Search Results Text: 
-![Searched Results Text](./Assets/searchResultsTextscreenshot.png)
-
-* Populated Data:
-![Populated Data](./Assets/populatedDashboardScreenshot.png)
-
-* Final Dashboard:
-![Final Dashboard](./Assets/finalDashboardPreviousSearchScreenshot.png)
-
-* Mobile UI Display (iPhone X): 
-![iPhone (mobile) display](./Assets/mobile.png)
 
 
 ## Sources (APIs)
