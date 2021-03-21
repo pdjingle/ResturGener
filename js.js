@@ -3,8 +3,6 @@ $(document).ready(function () {
     var rOptions = [];
     var prevArr = JSON.parse(localStorage.getItem("res")) || []; // array of searched cities
 
-    // localStorage.removeItem("res");
-
     // creates the button list of the last 10 searched cities
     function createPrevMenu() {
         let prevList = $("#prev-list").text("");
@@ -37,27 +35,21 @@ $(document).ready(function () {
             url: `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?sensor=false&address=${location}&key=${GOOGLE_API_KEY}`,
             datatype: "json",
 
-// NEED TO GET THIS TO WORK
-            error: function (jqXHR, textStatus, errorThrown) {
-                $("#error-modal").removeClass("hidden");
+            // to check the location is valid
+            error: function(jqXHR, textStatus, errorThrown) {
+                $("#error-modal").removeClass("modal_hidden");
+                $("#load").addClass("hidden");
             },
             success: function (data) {
-                // to check the location is valid
-                if (data["results"][0] === undefined) {
-                    alert("Input a valid location: zip, city, state, and/or address."); // TO-DO: NOT USE ALERTS. USE MODALS. ALSO, THE CALL TAKES TOO LONG BEFORE THE POPUP APPEARS. FIX SPEED
-                    return;
-                }
-
                 let lat = data["results"][0]["geometry"]["location"]["lat"];
                 let lon = data["results"][0]["geometry"]["location"]["lng"];
                 let radius = parseInt($("#radius").val());
 
                 // to make sure the radius is a valid number
                 if (!$.isNumeric(radius)) {
-                    alert("Select a desired Radius."); // TO-DO: CANNOT HAVE ALERTS! NEED TO MAKE THIS A MODAL
-                    return;
+                    $("#error-modal").removeClass("modal_hidden");
+                    $("#load").addClass("hidden");
                 }
-
                 radius = radius * 1609.344; // API is in meters, so multiply by 1609.344 to make the radius in miles
                 searchRestaurant(lat, lon, radius);
             }
@@ -83,7 +75,7 @@ $(document).ready(function () {
                 // adds to the previous searches bar. Only displays the previous 10 searches.
                 if (prevArr.indexOf(chosenRest) === -1) {
                     prevArr.push(chosenRest);
-                    if (prevArr.length > 5) { // makes sure the list of previously searched restaurants is limited to 10
+                    if (prevArr.length > 5) { // makes sure the list of previously searched restaurants is limited to 5
                         prevArr.shift();
                     }
                     localStorage.setItem("res", JSON.stringify(prevArr));
@@ -99,14 +91,7 @@ $(document).ready(function () {
             let operating = r.opening_hours;
             if (operating !== undefined && operating.open_now) {
                 if (r.rating >= parseInt($("#rating").val())) {
-                    if (parseInt($("#rating").val()) === undefined) {
-                        alert("Choose a rating."); // TO-DO: NOT USE ALERTS. USE MODALS.
-                    }
                     if (r.price_level <= parseInt($("#price").val())) {
-                        if (parseInt($("#price").val()) === undefined) {
-                            alert("Choose a price level."); // TO-DO: NOT USE ALERTS. USE MODALS.
-                        }
-
                         // checkbox option
                         let barOpt = $("#bar").is(':checked');
                         if (barOpt) {
@@ -127,9 +112,6 @@ $(document).ready(function () {
 
     // gets the different data from the API to display on the modal
     function modalDisplay(chosenRest) {
-console.log(chosenRest);
-// NOTE TO TEAM: I think the success of the main modal depended on the code that used to be here and what had been line 85/86
-// I just want to double check with what was done (which I know undoubtedly had a good purpose) so i can track it down to fix the modal
         $("#res-name").text(chosenRest.name);
         $("#res-icon").attr("src", chosenRest.icon);
         $("#address").text(chosenRest.vicinity);
@@ -139,10 +121,17 @@ console.log(chosenRest);
     }
 
     // modal may be closed by user by clicking the "X" in the upper-right corner of the modal
-    $("#modal_close").on('click', function (i) {
+    $("#cors_modal_close").on('click', function (i) {
+        $("#cors-modal").addClass("modal_hidden");
+    })
+    $("#res_modal_close").on('click', function (i) {
         $("#res-modal").addClass("modal_hidden");
     })
+    $("#error_modal_close").on('click', function (i) {
+        $("#error-modal").addClass("modal_hidden");
+    })
 
+    // clear button
     $("#clear").on('click', function (i) {
         prevArr = [];
         localStorage.removeItem("res");
