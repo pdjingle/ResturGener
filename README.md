@@ -16,7 +16,7 @@
 * Project Presentation Link: 
 
 
-## Introduction to the Restaurant Generator
+## Introduction to "Save Your Date: The Restaurant Decision Maker"
 	<<<< This will be more of a sales piece of the README, per Ron's suggestion. I'm writing a draft of it now and will insert shortly for both of your perousal, feedback, or editing. - ALF>>>
 
 ## Functionalitty
