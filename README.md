@@ -58,6 +58,7 @@
         * Did the same thing for "favorites," but favorites is only triggered when the favorites button is pressed.
     * Displayed each search by creating a button with the value of the place_id and the text of the name.
         * Used an API that uses the place_id from the object to get the restaurant object again. Passed the restaurant object into the modal function to display the modal for the desired restaurant button.
+* Added a loader from W3 Schools because some searches take a really long time. That way, the user will know that the app is running.
 * To bypass the CORS issue, added https://cors-anywhere.herokuapp.com/ in front of each API URL, and users need to click on this link to ask for permission.
 
 
