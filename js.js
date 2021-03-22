@@ -36,7 +36,7 @@ $(document).ready(function () {
             datatype: "json",
 
             // to check the location is valid
-            error: function (jqXHR, textStatus, errorThrown) {
+            error: function () {
                 $("#error-modal").removeClass("modal_hidden");
                 $("#load").addClass("hidden");
             },
@@ -79,7 +79,7 @@ $(document).ready(function () {
                 }
                 localStorage.setItem("res", JSON.stringify(prevArr));
                 createPrevMenu();
-            }
+            },
         })
     }
 
@@ -110,6 +110,12 @@ $(document).ready(function () {
 
     // gets the different data from the API to display on the modal
     function modalDisplay(chosenRest) {
+        // in case no restaurant fits the criteria
+        if (chosenRest === undefined) {
+            $("#no-results-modal").removeClass("modal_hidden");
+            $("#load").addClass("hidden");
+            return;
+        }
         $("#res-name").text(chosenRest.name);
         $("#res-icon").attr("src", chosenRest.icon);
         $("#address").text(chosenRest.vicinity);
@@ -128,6 +134,10 @@ $(document).ready(function () {
     $("#error_modal_close").on('click', function (i) {
         $("#error-modal").addClass("modal_hidden");
     })
+    $("#no_results_modal_close").on('click', function (i) {
+        $("#no-results-modal").addClass("modal_hidden");
+    })
+    
 
     // clear button
     $("#clear").on('click', function (i) {
