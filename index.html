@@ -12,12 +12,22 @@
 </head>
 
 <body>
+<!-- Cors Anywhere -->
+<div id="cors-modal" class="modal">
+    <div class="modal_contents">
+        <div class="modal_close-bar">
+            <span id="cors_modal_close">X</span>
+        </div>
+        <p style="margin-top: 10px;">Before you do anything, go to this site: <a href="https://cors-anywhere.herokuapp.com/corsdemo" style="color: blue" target="_blank">https://cors-anywhere.herokuapp.com/corsdemo</a>.</p>
+    </div>
+</div>
+
 <!-- Modal HTML -->
         <!-- Once the user inputs their criteria, the JS code displays a computer-chosen restaurant -->
         <div id="res-modal" class="modal modal_hidden">
             <div class="modal_contents">
                 <div class="modal_close-bar">
-                    <span id="modal_close">X</span>
+                    <span id="res_modal_close">X</span>
                 </div>
                 <!-- The restaurant info from the API -->
                 <section id="chosen-restaurant" style="margin: 10px">
@@ -38,9 +48,9 @@
         <div id="error-modal" class="modal modal_hidden">
             <div class="modal_contents">
                 <div class="modal_close-bar">
-                    <span id="modal_close">X</span>
+                    <span id="error_modal_close">X</span>
                 </div>
-                <p>Fill in all the criteria: Location, radius, rating, and price range.</p>
+                <p>Fill in all the criteria: Location and radius.</p>
             </div>
         </div>
 
@@ -87,7 +97,7 @@
                     <div id="load" class="loader hidden"></div>
 
                     <select id="rating">
-                        <option>--Minimum Star Rating--</option>
+                        <option value="0">--Minimum Star Rating--</option>
                         <option value="1">1 Star</option>
                         <option value="2">2 Stars</option>
                         <option value="3">3 Stars</option>
@@ -96,7 +106,7 @@
                     </select>
 
                     <select id="price">
-                        <option>--Maximum Price Level--</option>
+                        <option value="6">--Maximum Price Level--</option>
                         <option value="1">$</option>
                         <option value="2">$$</option>
                         <option value="3">$$$</option>
