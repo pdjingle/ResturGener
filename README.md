@@ -2,7 +2,7 @@
 
 
 ## Introduction to "Save Your Date: The Restaurant Decision Maker"
-	Restaurant decision-maker now makes choosing a restaurant fun and easy. The user navigates to this location https://github.com/pdjingle/ResturGener and input the desired location and distance traveled. The user will also have an option to choose if the location will have an on-site bar. Then press the "choose my restaurant option". That will then pop up a notification within the browser of a location randomly generated via the program. If the user does not like that location they may choose to input the constraints again to generate another restaurant. 
+Restaurant decision-maker now makes choosing a restaurant fun and easy. The user navigates to this location https://github.com/pdjingle/ResturGener and input the desired location and distance traveled. The user will also have an option to choose if the location will have an on-site bar. Then press the "choose my restaurant option". That will then pop up a notification within the browser of a location randomly generated via the program. If the user does not like that location they may choose to input the constraints again to generate another restaurant. 
     
 * Functioning Website Link: https://pdjingle.github.io/ResturGener
     
