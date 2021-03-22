@@ -72,15 +72,13 @@ $(document).ready(function () {
                 $("#load").addClass("hidden");
                 modalDisplay(chosenRest);
 
-                // adds to the previous searches bar. Only displays the previous 10 searches.
-                if (prevArr.indexOf(chosenRest) === -1) {
-                    prevArr.push(chosenRest);
-                    if (prevArr.length > 5) { // makes sure the list of previously searched restaurants is limited to 5
-                        prevArr.shift();
-                    }
-                    localStorage.setItem("res", JSON.stringify(prevArr));
-                    createPrevMenu();
+                // adds to the previous searches bar. Only displays the previous 5 searches.
+                prevArr.push(chosenRest);
+                if (prevArr.length > 5) {
+                    prevArr.shift();
                 }
+                localStorage.setItem("res", JSON.stringify(prevArr));
+                createPrevMenu();
             }
         })
     }

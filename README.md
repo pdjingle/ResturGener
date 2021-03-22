@@ -31,7 +31,7 @@
 * Used Pure.css to make the site layout on any UI
 * In the JS file, the rightcolumn calls on localStorage to display all the buttons of the past 5 randomly generated restaurants before the user starts a new search.
 
-* Used an array of up to length 5 to make sure no repeat buttons are made
+* Used an array of up to length 5 to add buttons for the previously searched restaurants.
 * Created a button function that will search a restaurant fitting the user's criteria.
 * The button function then calls on another function, which uses a Google Geocode API to get the latitude and longitude for that user-input location.
 
@@ -69,7 +69,8 @@
 * Allow users to remove or even rank their favorites
 * Allow users to submit testimonials of their dining experiences, their experiences using the app, and its effect on their evenings/lives.
 * Add a "Favorites" column for users to add their favorite restaurants.
-* Add phone number feature to app, so the user can call directly to make reservations or order food 
+* Add phone number feature to app, so the user can call directly to make reservations or order food
+* Make the previous searches not duplicate the same restaurant(s).
 
 
 ## Website Assets
