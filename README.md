@@ -89,8 +89,8 @@ Restaurant decision-maker now makes choosing a restaurant fun and easy. The user
 * DesktopDemo:
 ![Desktop Demo](./Assets/RestaurantPicker-WebUsage.gif)
 
-* Mobile Demo:
-![Mobile Demo]<img src="./Assets/MobileScreenVideoDemo.gif" width="200" height="400" /> 
+* Mobile Demo:<br>
+<img src="./Assets/MobileScreenVideoDemo.gif" width="50%" height="50%" alt="mobile demo"/> 
 
 
 ## Sources (APIs)
