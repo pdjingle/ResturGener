@@ -2,13 +2,13 @@
 
 
 ## Table of Contents
-[Introduction](#introduction")
-[Functionality](#functionality)
-[Tasks Completed](#tasks-completed)
-[Known Issues](#known-issues)
-[Future Ideas](#future-ideas)
-[Demos](#website-demos)
-[Sources](#sources-(APIs))
+* [Introduction](#introduction")
+* [Functionality](#functionality)
+* [Tasks Completed](#tasks-completed)
+* [Known Issues](#known-issues)
+* [Future Ideas](#future-ideas)
+* [Demos](#website-demos)
+* [Sources](#sources-(APIs))
 
 
 ## Introduction
