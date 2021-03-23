@@ -1,8 +1,18 @@
 # Group Project 1: Random Restaurant Generator
 
 
-## Introduction to "Save Your Date: The Restaurant Decision Maker"
-Restaurant decision-maker now makes choosing a restaurant fun and easy. The user navigates to https://github.com/pdjingle/ResturGener and inputs their location or a desired location, and the size of the search area. The user will also have an option to choose if the location will have an on-site bar. The user then clicks the "choose my restaurant" button. That will then pop up a notification within the browser of an establishment randomly generated via the program. If the user does not like that location, they may choose to input the parameters again to generate another restaurant. 
+## Table of Contents
+[Introduction](#introduction")
+[Functionality](#functionality)
+[Tasks Completed](#tasks-completed)
+[Known Issues](#known-issues)
+[Future Ideas](#future-ideas)
+[Demos](#website-demos)
+[Sources](#sources-(APIs))
+
+
+## Introduction
+Restaurant decision-maker now makes choosing a restaurant fun and easy. The user navigates to this location https://github.com/pdjingle/ResturGener and input the desired location and distance traveled. The user will also have an option to choose if the location will have an on-site bar. Then press the "choose my restaurant option". That will then pop up a notification within the browser of a location randomly generated via the program. If the user does not like that location they may choose to input the constraints again to generate another restaurant. 
     
 * Functioning Website Link: https://pdjingle.github.io/ResturGener
     
@@ -11,7 +21,7 @@ Restaurant decision-maker now makes choosing a restaurant fun and easy. The user
 
 ## Functionality
 
-* User goes to this site: https://cors-anywhere.herokuapp.com/corsdemo and requests temporary access via the "demo" button.
+* User goes to this site: https://cors-anywhere.herokuapp.com/corsdemo and requests temporary access via the button.
 * When the user searches a location, a mile radius, the minimum rating, and the maximum price level, they are given a random restaurant that fits that criteria.
     * User also has an optional "Bar" option if they want their restaurant to have a bar.
     * A button is created for the randomly generated restaurant, which is appended to the "Previous Searches" section. Previous searches is maxed out at 5 previously searched restaurants.
@@ -24,7 +34,7 @@ Restaurant decision-maker now makes choosing a restaurant fun and easy. The user
 
 ## Tasks Completed
 
-* To bypass the CORS issue, added https://cors-anywhere.herokuapp.com/corsdemo in front of each API URL, and users need to click on this link to ask for permission.
+* To bypass the CORS issue, added https://cors-anywhere.herokuapp.com/ in front of each API URL, and users need to click on this link to ask for permission.
 * Created IDs in the HTML file to reference via JQuery in the JS file.
     * The "History" subheading also allows the user to drop down to the Previous Searches section (when viewing on smaller screens)
 * Created CSS styling using flexbox and Pure.css
@@ -55,6 +65,7 @@ Restaurant decision-maker now makes choosing a restaurant fun and easy. The user
 * Footer on smaller screens isn't centered correctly.
 * Texting option does not work yet.
 * Occassionally, the API will not work. Take a break if this happens.
+* API can be really slow at times.
 
 
 ## Future Ideas
@@ -73,29 +84,13 @@ Restaurant decision-maker now makes choosing a restaurant fun and easy. The user
 * Make the previous searches not duplicate the same restaurant(s).
 
 
-## Website Assets
+## Website Demos
 
-<<<<<<< HEAD
-* Demo:
-See in repo for both mobile and web versions 
-
-
-
-* Empty Dashboard: 
-![Empty Dash](./assets/empty-dash.png)
-
-* Search Results: 
-![Search Results](./assets/search-results.png)
-
-* Saved Favorite Restaurant: 
-![Saved Favorite Restaurant](./assets/fave-save.png)
-=======
 * DesktopDemo:
 ![Desktop Demo](./Assets/RestaurantPicker-WebUsage.gif)
->>>>>>> 6f9ea3eb26891574f0358f51d7d312134c957a76
 
 * Mobile Demo:
-![Mobile Demo](./Assets/MobileScreenVideoDemo.gif)
+![Mobile Demo](./Assets/MobileScreenVideoDemo.gif =250x)
 
 
 ## Sources (APIs)
