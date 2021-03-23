@@ -66,6 +66,7 @@ Restaurant decision-maker now makes choosing a restaurant fun and easy. The user
 * Texting option does not work yet.
 * Occassionally, the API will not work. Take a break if this happens.
 * API can be really slow at times.
+* After the "No Results" modal, new searches will not save in the local storage of "Previous Searches". Problem is fixed when page is refreshed.
 
 
 ## Future Ideas
