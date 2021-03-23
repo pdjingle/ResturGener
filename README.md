@@ -2,13 +2,13 @@
 
 
 ## Table of Contents
-* [Introduction](#introduction")
+* [Introduction](#introduction)
 * [Functionality](#functionality)
 * [Tasks Completed](#tasks-completed)
 * [Known Issues](#known-issues)
 * [Future Ideas](#future-ideas)
 * [Demos](#website-demos)
-* [Sources](#sources-(APIs))
+* [Sources](#sources-APIs)
 
 
 ## Introduction
@@ -94,7 +94,7 @@ Restaurant decision-maker now makes choosing a restaurant fun and easy. The user
     <img src="./Assets/MobileScreenVideoDemo.gif" width="50%" height="50%" stylealt="mobile demo"/> 
 </p>
 
-## Sources (APIs)
+## Sources APIs
 
 * Used APIs from Google: https://developers.google.com/apis-explorer
     * Location: https://developers.google.com/maps/documentation/geocoding/overview
